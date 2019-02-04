@@ -115,6 +115,7 @@ for (i in 1:100) { #i will start at 1
 #Starts from 1
 #Increases by 2 to 100
 b <- seq(1, 100, 2 ) 
+print(b)
 ```
 
 ### 4) Find the sum of all the integer numbers from 1 to 100.
@@ -122,11 +123,23 @@ b <- seq(1, 100, 2 )
 
 Sum <- 0 #Declare and intialize "Sum""
 
-for(i in o) { # For the length of "o" (50)
+for(i in b) { # For the length of "o" (50)
  Sum <- Sum + i # Sum equals the value of the previous iteration on 
 }
 
 print(Sum) # Prints the final sum value
+sum(b) #Check with sum function
+```
 
+### 5) Write a function that adds two values.
+```{r, eval=TRUE}
+
+#Function "addition" will take in two values "x" (1) and "y" (2)
+#Prints the value from the function "addition"
+
+addition <- function(x, y) {
+  x + y
+}
+print(addition(1,2))
 ```
 
