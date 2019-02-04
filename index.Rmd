@@ -17,27 +17,116 @@ output: html_document
 <div class="row" style="padding-top: 30px;">
 <div class="col-sm-6">
 
-# **My Lab Journal111**
+# **Kamal Abdelrahman's Lab Journal**
 
-This is a template example for lab journaling. Students in Matt Crump's Human Cognition and Performance Lab will use this template to learn R, and other things. Students can replace this text with more fun things. People not in my lab can use this too.
+#Practice Problems
 
-## How to use
+##Easy
 
-1. fork the repo for this website and follow instructions on read me to get set up. [https://github.com/CrumpLab/LabJournalWebsite](https://github.com/CrumpLab/LabJournalWebsite)
+###1) Do simple math with numbers, addition, subtraction, multiplication, division
+```{r, eval=TRUE}
+#Addition with numbers
+1 + 1
 
-2. Blog/journal what you are doing in R, by editing the Journal.Rmd. See the [Journal page](https://crumplab.github.io/LabJournalWebsite/Journal.html) for an example of what to do to get started learning R.
+#Subtraction with numbers
+1 - 1
 
-3. See the [links page](https://crumplab.github.io/LabJournalWebsite/Links.html) for lots of helpful links on learning R.
+#Multiply with numbers
+10 * 1
 
-4. Change everything to make it your own.
+```
 
+###2) Put numbers into variables, do simple math on the variables
+```{r, eval=TRUE}
+#Addition with variables
+a <- 1 
 
-</div>
-<div class="col-sm-6">
+b <- 1 
 
-### [Crump Lab: Human Cognition and Performance](https://crumplab.github.io)
+a + b 
 
-<a href = "https://crumplab.github.io">
-![](images/logo.png)
-</a>
-</div>
+#Subtraction with variables
+a <- 1 
+
+b <- 1
+
+a - b
+
+#Multiply with variables
+a <- 10
+
+b <- 1
+
+a * b 
+
+#Divide with variables
+a <- 20
+
+b <- 2
+
+a/b
+```
+
+###2) Put numbers into variables, do simple math on the variables
+```{r, eval=TRUE}
+#Addition with variables
+a <- 1 
+
+b <- 1 
+
+a + b 
+
+#Subtraction with variables
+a <- 1 
+
+b <- 1
+
+a - b
+
+#Multiply with variables
+a <- 10
+
+b <- 1
+
+a * b 
+
+#Divide with variables
+a <- 20
+
+b <- 2
+
+a/b
+```
+
+###3) Write code that will place the numbers 1 to 100 separately into a variable using for loop
+```{r, eval=TRUE}
+
+ 
+for (i in 1:100) { #i will start at 1
+ a <- i #that value will be stored in a
+        #This is repeated as long as i is not greater than 100
+ print(a) #Prints a, an array of numbers
+} 
+```
+
+###3a) Then, again using the seq function.
+```{r, eval=TRUE}
+
+#Starts from 1
+#Increases by 2 to 100
+b <- seq(1, 100, 2 ) 
+```
+
+### 4) Find the sum of all the integer numbers from 1 to 100.
+```{r, eval=TRUE}
+
+Sum <- 0 #Declare and intialize "Sum""
+
+for(i in o) { # For the length of "o" (50)
+ Sum <- Sum + i # Sum equals the value of the previous iteration on 
+}
+
+print(Sum) # Prints the final sum value
+
+```
+
