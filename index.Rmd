@@ -175,12 +175,16 @@ for (i in 1:100) {
 
 ```
 
+### 7)  
+
+
 ### 8) Print 100 values
 ```{r, eval=TRUE}
 
 runif(100)
 
 ```
+
 ### 9) Print 100 values between 1 and 1000
 ```{r, eval=TRUE}
 
