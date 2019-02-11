@@ -1,0 +1,653 @@
+---
+title: "Sample Problems"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 1
+    #code_folding: hide
+---
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
+```
+
+
+#Input and output
+
+
+```{r, eval=TRUE}
+#Gives description of an R topic. Usually includes a definition, general code, example of application
+help() - 
+
+help("mean")
+
+```
+
+```{r, eval=TRUE}
+#Gives a description of an R topic
+
+?
+
+?median
+
+```
+
+```{r, eval=TRUE}
+
+#Lists the local variables of a function
+ls()  
+
+x <- c(1,2,3,4)
+y <- c(5,6,7,8)
+
+data <- data.frame(x,y)
+ls(data)
+
+```
+
+```{r, eval=TRUE}
+#Returns the name of files in a filepath
+
+dir() 
+
+dir("/Applications")
+
+```
+
+```{r, eval=TRUE}
+
+#Returns the name of files in a filepath 
+list.files()
+
+list.files("/Applications")
+
+```
+
+
+#Input and Output
+```{r, eval=TRUE}
+wd()
+
+
+```
+
+```{r, eval=TRUE}
+save()
+
+```
+
+```{r, eval=TRUE}
+load()
+
+```
+
+```{r, eval=TRUE}
+#Returns a list of datasets already included in R
+
+data() 
+
+data() # Loads general list of datasets
+data("mtcars") # Loads a specific dataset 
+```
+
+```{r, eval=TRUE}
+#Loads a package to be used in an R program
+
+library() 
+
+#Load ggplot2 package
+
+library(ggplot2)
+```
+
+```{r, eval=TRUE}
+# Loads a table into R
+
+read.table()
+
+```
+
+
+
+```{r, eval=FALSE}
+#Exports a variable to a file as a data frame
+
+write.table() 
+
+
+```
+
+#Data Creation
+```{r, eval=FALSE}
+#Indicates what values to included in a function. These could be column indeces or values.
+
+from:to (where from and to are replaced with numbers, e.g. 1:10)  
+
+c(1:10)
+
+
+```
+
+```{r, eval=TRUE}
+#Generates a standard pattern from beginning to end, by a standard increase or decrease
+
+seq(1,100,5) 
+
+
+```
+
+```{r, eval=TRUE}
+#Repeats arguments in the given order, for a number of iterations
+
+rep()  
+
+rep(1:10,2)
+
+```
+
+```{r, eval=TRUE}
+#Converts variables into a data frame
+
+data.frame() 
+
+x <- (1:5)
+y <- (6:10)
+z <- data.frame(x,y)
+
+z
+```
+
+```{r, eval=TRUE}
+#Converts variables into a data frame
+
+list() 
+
+```
+
+```{r, eval=TRUE}
+#Creates a matrix, a set that contains at least
+
+matrix()  
+
+```
+
+```{r, eval=TRUE}
+#Converts an object to factor class  
+
+
+x <- c("Male", "Female", "Male", "Female")
+
+class(x)
+
+factor(x)
+```
+
+```{r, eval=TRUE}
+#Converts an object to factor class  
+
+rbind() Combines vector, matrix or data frame by rows
+a <- (1:5)
+b <- (6:10)
+c <- data.frame(a,b)
+
+x <- (1:5)
+y <- (6:10)
+z <- data.frame(x,y)
+
+rbind(c,z)
+```
+
+```{r, eval=TRUE}
+#Combines vector, matrix or data frame by columns 
+
+cbind() 
+a <- (1:5)
+b <- (6:10)
+c <- data.frame(a,b)
+
+x <- (1:5)
+y <- (6:10)
+z <- data.frame(x,y)
+
+cbind(c,z)
+```
+
+
+
+
+
+
+
+Slicing and extracting data
+indexing vectors 
+
+##Variable conversion
+```{r, eval=TRUE}
+#Combines vector, matrix or data frame by columns 
+
+as.data.frame(x) 
+
+x <- (1:5)
+y <- (6:10)
+z <- data.frame(x,y)
+
+z
+```
+
+```{r, eval=TRUE}
+#Combines vector, matrix or data frame by columns 
+
+as.data.frame(x) 
+
+x <- (1:5)
+y <- (6:10)
+z <- data.frame(x,y)
+
+z
+```
+
+```{r, eval=TRUE}
+#Combines vector, matrix or data frame by columns 
+
+as.data.frame(x) 
+
+x <- (1:5)
+y <- (6:10)
+z <- data.frame(x,y)
+
+z
+```
+
+```{r, eval=TRUE}
+#Combines vector, matrix or data frame by columns 
+
+as.data.frame(x) 
+
+x <- (1:5)
+y <- (6:10)
+z <- data.frame(x,y)
+
+z
+```
+
+```{r, eval=TRUE}
+#Converts varabiable to numeric data type
+
+x <- c("1","2","3","4")
+
+class(x)
+
+as.numeric(x) 
+```
+
+```{r, eval=TRUE}
+#Converts variable to a logical data type
+
+x <- c("T", "F", "T", "F")
+
+class(x)
+
+as.logical(x) 
+```
+
+```{r, eval=TRUE}
+#Converts varaiable to character data type
+
+x <- c(1, 2, 3, 4)
+
+class(x)
+
+as.character(x) 
+```
+
+##Variable information
+```{r, eval=TRUE}
+#Determines if variable is "NA" value. Returns True or False.
+
+is.na() 
+```
+
+```{r, eval=TRUE}
+#Determines if value is undefined. Returns True or False
+
+is.null() 
+```
+
+```{r, eval=TRUE}
+#Determines if value is a dataframe Returns True or False
+
+x <- (1:5)
+y <- (6:10)
+z <- data.frame(x,y)
+
+is.data.frame(z)
+```
+
+```{r, eval=TRUE}
+#Determines if value is a numeric data type. Returns True or False.
+
+x <- (1:5)
+
+is.numeric(x) 
+```
+
+```{r, eval=TRUE}
+#Determines if value is a numeric data type. Returns True or False.
+
+x <- c("1", "2", "3")
+
+is.numeric(x) 
+```
+
+```{r, eval=TRUE}
+#Determines if value is a character data type. Returns True or False.
+
+x <- c("1", "2", "3")
+
+is.character(x) 
+```
+
+
+```{r, eval=TRUE}
+#Determines length of value
+
+x <- c(1:100)
+
+length(x) 
+```
+
+```{r, eval=TRUE}
+#Gets or sets the length of a vector (list) or other objects
+
+x <- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE)
+
+dim(x)
+```
+
+```{r, eval=TRUE}
+#Identifies the number of rows in x
+
+x <- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE)
+
+nrow(x) 
+```
+
+```{r, eval=TRUE}
+#Identifies data type of variable
+
+x <- c("First", "Second", "Third")
+
+class(x)  
+```
+
+```{r, eval=TRUE}
+#Accesses the attribute of an object attribute
+
+x <- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE)
+
+attributes(x)
+```
+
+#Data selection and manipulation
+```{r, eval=TRUE}
+#Accesses the attribute of an object attribute
+
+x <- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE)
+
+attributes(x)
+```
+
+```{r, eval=TRUE}
+#Identifies index that has the lowest value in a variable
+
+which.min(c(32,34,3,2,212,33243,34234,532))
+```
+
+```{r, eval=TRUE}
+#Identifies index that has the highest value in a variable
+
+which.min(c(32,34,3,2,212,33243,34234,532))
+```
+
+```{r, eval=TRUE}
+#Identifies index that has the highest value in a variable
+
+which.min(c(32,34,3,2,212,33243,34234,532))
+```
+
+```{r, eval=TRUE}
+#Identifies index of an argument that fulfills a condition
+
+x <- c(20,3,2, 4,30,2,3,5,32,432)
+which(x > 100)
+
+```
+
+```{r, eval=TRUE}
+#Arranges a vector in either descending or ascending order
+
+x <- c(20,3,2, 4,30,2,3,5,32,432)
+
+sort(x,decreasing = F)
+```
+
+```{r, eval=TRUE}
+#Returns unique values of an argument
+
+x <- c(1,1,1,1,1,1,2,2,2,2,2,2,2,23,3,3,3,3,33,3,3)
+
+unique(x)
+```
+
+
+
+table() - Creates a table of frequency counts of categorical variables
+
+sample() - Takes a sample of the specified size from the elements of x
+
+##Math
+```{r, eval=TRUE}
+#Identifies maximum value of a set of values
+
+max(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  
+```
+
+```{r, eval=TRUE}
+#Identifies minimum value of a set of values
+
+max(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  
+```
+
+```{r, eval=TRUE}
+#Identifies range of a set of values
+
+range(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  
+```
+
+```{r, eval=TRUE}
+#Identifies sum of a set of values
+
+sum(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  
+```
+
+```{r, eval=TRUE}
+#Identifies mean of a set of values
+
+mean(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  
+```
+
+```{r, eval=TRUE}
+#Identifies median of a set of values
+
+median(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  
+```
+
+```{r, eval=TRUE}
+#Identifies variance of a set of values
+
+var(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  
+```
+
+```{r, eval=TRUE}
+#Identifies correlation of a set of values
+
+cor(c(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23), c(1,2,23,3,4,4,5,5,6,7,4,3,3,2,3,5,6))  
+```
+
+```{r, eval=TRUE}
+#Identifies absolute value
+
+abs(-100 + 0) 
+```
+
+##Matrix
+```{r, eval=TRUE}
+#Returns the sum from each row of x
+
+x <- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE) 
+
+x
+
+rowSums(x)
+```
+
+
+
+t()
+diag()
+
+```{r, eval=TRUE}
+#Returns the sum from each column of x
+
+x <- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE) 
+
+x
+
+colSums(x)
+```
+
+```{r, eval=TRUE}
+#Returns the mean from each row of x
+
+x <- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE) 
+
+x
+
+rowMeans(x)
+```
+
+```{r, eval=TRUE}
+#Returns the mean from each column of x
+
+x <- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE) 
+
+x
+
+colMeans(x)
+```
+
+<!-- ##Advanced Data processing -->
+<!-- ```{r, eval=TRUE} -->
+<!-- #Returns the mean from each column of x -->
+
+<!-- apply() -->
+<!-- aggregate() - Group data by a specific group -->
+<!-- ``` -->
+
+##Strings
+
+```{r, eval=TRUE}
+#Converts argument to character data type and concatentates them together
+
+paste(1,2,3,4,5)
+```
+
+```{r, eval=TRUE}
+#Splits character vector x into substrings by matching substring
+
+strsplit("BR_OOK_LYN_CO_LL_EGE", "_")
+```
+
+```{r, eval=TRUE}
+#Splits character vector x into substrings by matching substring
+
+strsplit("BR_OOK_LYN_CO_LL_EGE", "_")
+```
+
+```{r, eval=TRUE}
+#Converts text to lower case
+
+tolower("LOWERCASE")  
+```
+
+```{r, eval=TRUE}
+#Converts text to lower case
+
+toupper("uppercase")  
+```
+
+```{r, eval=TRUE}
+#Base histogram plot
+
+x <- rnorm(100, 45, 2)
+hist(x)
+```
+
+```{r, eval=TRUE}
+#Plots a regular baseplot based on the type and number of vairables
+
+x <- rnorm(100, 45, 2)
+y <- rnorm(100, 45, 2)
+plot(x,y) 
+```
+
+##Distributions
+```{r, eval=TRUE}
+#Plots a regular baseplot based on the type and number of vairables
+
+x <- rnorm(100, 45, 2)
+y <- rnorm(100, 45, 2)
+plot(x,y) 
+```
+
+
+
+rnorm() - Create a normal distribution 
+runif() - Creates a distribution based on sample, and min/max values
+
+
+Programming
+
+show that you can define a function
+
+addition <- function(x,y)
+ x + y
+
+addition(1,2)
+
+show that you can write a for loop
+
+for i in c(1:100)
+
+show that you can write a while loop
+
+i <- 1
+while(i < 10) {
+ i = i + 1
+ print(i)
+}
+
+show that you can write an if else statement
+
+x = 1
+y = 2
+if(x = 3) {
+ print(x)
+} else {
+ print(y) 
+}
+
+
