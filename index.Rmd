@@ -67,36 +67,6 @@ b <- 2
 a/b
 ```
 
-###2) Put numbers into variables, do simple math on the variables
-```{r, eval=TRUE}
-#Addition with variables
-a <- 1 
-
-b <- 1 
-
-a + b 
-
-#Subtraction with variables
-a <- 1 
-
-b <- 1
-
-a - b
-
-#Multiply with variables
-a <- 10
-
-b <- 1
-
-a * b 
-
-#Divide with variables
-a <- 20
-
-b <- 2
-
-a/b
-```
 
 ###3) Write code that will place the numbers 1 to 100 separately into a variable using for loop
 ```{r, eval=TRUE}
@@ -143,18 +113,6 @@ addition <- function(x, y) {
 print(addition(1,2))
 ```
 
-### 6) Write a function that adds two values.
-```{r, eval=TRUE}
-
-#Function "addition" will take in two values "x" (1) and "y" (2)
-#Prints the value from the function "addition"
-
-addition <- function(x, y) {
-  x + y
-}
-print(addition(1,2))
-```
-
 ### 6) List all of the odd numbers from 1 to 100.
 ```{r, eval=TRUE}
 
@@ -165,18 +123,11 @@ for (i in 1:100) {
 
 ```
 
-### 6) List all of the odd numbers from 1 to 100.
+### 7) List all of the prime numbers from 1 to 1000.
 ```{r, eval=TRUE}
 
-for (i in 1:100) {
-  if (i %% 2 ==1) 
-    print(i)
-}
 
 ```
-
-### 7)  
-
 
 ### 8) Print 100 values
 ```{r, eval=TRUE}
@@ -185,10 +136,171 @@ runif(100)
 
 ```
 
-### 9) Print 100 values between 1 and 1000
+### 9) Print 100 random numbers within a specific range
 ```{r, eval=TRUE}
 
 runif(100, 0 , 1000)
 
 ```
+
+### 10) Write a functions for the mean, median, mode, range, and standard deviation
+```{r, eval=TRUE}
+#Mean
+Mean <- function(x){
+  sum(x)/length(x)
+}
+
+x <- c(1,2,3,4,5,6)
+Mean(x)
+
+#Median
+
+#Mode
+Mode <- function(x) {
+ ux <- unique(x)
+ ux[which.max(tabulate(match(x, ux)))]
+}
+
+x <- c(1,2,3,3,3)
+Mode(x)
+
+#Range
+
+Range <- function(x) {
+  max(x) - min(x)
+}
+
+x <- c(1,2,3,3,3)
+Range(x)
+
+#Standard Deviation
+
+StandardDev <- function(x) {
+  sqrt(sum((x- sum(x)/length(x))^2/(length(x)-1)))
+}
+
+x<- c(1,2,3,4)
+StandardDev(x)
+
+sd(c(1,2,3,4))
+
+```
+
+
+### 11) Count the number of characters in a string variable
+```{r, eval=TRUE}
+
+letters <- "abcdefghijk"
+lettersnew <- strsplit(letters,split="")
+
+lettersnew
+nchar(letters, type = "chars")
+```
+
+### 12) Count the number of words in a string variable
+```{r, eval=TRUE}
+
+sentence <- "This sentence will be seperated"
+sentencesnew <- strsplit(sentence,split=" ")
+
+sentencesnew
+sapply(sentencesnew, length)
+```
+
+### 13) Count the number of sentences in a string variable (MARK)
+```{r, eval=TRUE}
+
+sentences <- "This sentence will be seperated. This sentence will also be seperated."
+sentencessplit <- strsplit(sentences,split = ".")
+
+sentencessplit
+sapply(sentencessplit, length)
+```
+
+### 14) Count the number of times a specific character occurs in a string variable
+```{r, eval=TRUE}
+library(stringr)
+string <- c("a", "b", "c", "d", "a", "b", "c", "d")
+
+sum(str_count(string, pattern = "a"))
+
+```
+
+### 15) Do a logical test to see if one word is found within the text of another string variable (MARK)
+```{r, eval=TRUE}
+
+word <- "word"
+sentence <- "There is a word"
+sentence2 <- c("There", "is", "a", "word")
+
+word%in%sentence
+word%in%sentence2
+```
+
+
+### 16) Print the computer time in milliseconds
+```{r, eval=TRUE}
+
+print(as.numeric(Sys.time())*1000, digits=15)
+```
+### 17) Measure how long a piece of code takes to run by measuring the time before the code is run, and after the code is run, and taking the difference to find the total time
+```{r, eval=TRUE}
+start.time <- Sys.time()
+
+Sum <- 0
+
+for (i in c(1:100)){
+  Sum = Sum + i
+}
+
+Sum
+
+end.time <- Sys.time()
+time.taken <- end.time - start.time
+time.taken
+```
+
+### 18) Read a .txt file or .csv file into a variable
+```{r, eval=FALSE}
+datatxt <- read.txt("\Pathway\filename.txt")
+datacsv <- read.csv("\Pathway\filename.csv")
+```
+
+### 19) Output the contents of a variable to a .txt file
+```{r, eval=FALSE}
+write.csv("variable", "pathway")
+```
+
+### 20) Create a variable that stores a 20x20 matrix of random numbers
+```{r, eval=TRUE}
+a <- matrix(sample(1:400, 400), ncol=20,nrow=20)
+a
+```
+
+### 21) Output any matrix to a txt file using commas or tabs to separate column values, and new lines to separate row values
+```{r, eval=FALSE}
+write.txt(variable, pathway, sep = "," or "\t", dec = ".")
+```
+
+##Hard
+
+### 1) List the numbers from 1 to 100 with the following constraints. If the number can be divided by three evenly, then print Fizz instead of the number. If the number can be divided by five evenly, then print Buzz instead of the number. Finally, if the number can be divided by three and five evenly, then print FizzBuzz instead of the number. (MARK)
+```{r, eval=FALSE}
+for (i in as.numeric(c(1:100))){
+  if ((i %% 3 == 0) & (i %% 5 == 0)) {
+      print(i)
+  }
+  else if (i %% 3 == 0) {
+  print("Fizz")
+  }
+  else if (i %% 5 == 0)  {
+  print("Fizz")
+  }
+}
+```
+
+
+
+
+
 

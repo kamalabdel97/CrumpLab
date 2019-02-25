@@ -370,37 +370,6 @@ b &lt;- 2
 a/b</code></pre>
 <pre><code>## [1] 10</code></pre>
 </div>
-<div id="put-numbers-into-variables-do-simple-math-on-the-variables-1" class="section level3">
-<h3>2) Put numbers into variables, do simple math on the variables</h3>
-<pre class="r"><code>#Addition with variables
-a &lt;- 1 
-
-b &lt;- 1 
-
-a + b </code></pre>
-<pre><code>## [1] 2</code></pre>
-<pre class="r"><code>#Subtraction with variables
-a &lt;- 1 
-
-b &lt;- 1
-
-a - b</code></pre>
-<pre><code>## [1] 0</code></pre>
-<pre class="r"><code>#Multiply with variables
-a &lt;- 10
-
-b &lt;- 1
-
-a * b </code></pre>
-<pre><code>## [1] 10</code></pre>
-<pre class="r"><code>#Divide with variables
-a &lt;- 20
-
-b &lt;- 2
-
-a/b</code></pre>
-<pre><code>## [1] 10</code></pre>
-</div>
 <div id="write-code-that-will-place-the-numbers-1-to-100-separately-into-a-variable-using-for-loop" class="section level3">
 <h3>3) Write code that will place the numbers 1 to 100 separately into a variable using for loop</h3>
 <pre class="r"><code>for (i in 1:100) { #i will start at 1
@@ -543,17 +512,6 @@ addition &lt;- function(x, y) {
 print(addition(1,2))</code></pre>
 <pre><code>## [1] 3</code></pre>
 </div>
-<div id="write-a-function-that-adds-two-values.-1" class="section level3">
-<h3>6) Write a function that adds two values.</h3>
-<pre class="r"><code>#Function &quot;addition&quot; will take in two values &quot;x&quot; (1) and &quot;y&quot; (2)
-#Prints the value from the function &quot;addition&quot;
-
-addition &lt;- function(x, y) {
-  x + y
-}
-print(addition(1,2))</code></pre>
-<pre><code>## [1] 3</code></pre>
-</div>
 <div id="list-all-of-the-odd-numbers-from-1-to-100." class="section level3">
 <h3>6) List all of the odd numbers from 1 to 100.</h3>
 <pre class="r"><code>for (i in 1:100) {
@@ -611,110 +569,253 @@ print(addition(1,2))</code></pre>
 ## [1] 97
 ## [1] 99</code></pre>
 </div>
-<div id="list-all-of-the-odd-numbers-from-1-to-100.-1" class="section level3">
-<h3>6) List all of the odd numbers from 1 to 100.</h3>
-<pre class="r"><code>for (i in 1:100) {
-  if (i %% 2 ==1) 
-    print(i)
-}</code></pre>
-<pre><code>## [1] 1
-## [1] 3
-## [1] 5
-## [1] 7
-## [1] 9
-## [1] 11
-## [1] 13
-## [1] 15
-## [1] 17
-## [1] 19
-## [1] 21
-## [1] 23
-## [1] 25
-## [1] 27
-## [1] 29
-## [1] 31
-## [1] 33
-## [1] 35
-## [1] 37
-## [1] 39
-## [1] 41
-## [1] 43
-## [1] 45
-## [1] 47
-## [1] 49
-## [1] 51
-## [1] 53
-## [1] 55
-## [1] 57
-## [1] 59
-## [1] 61
-## [1] 63
-## [1] 65
-## [1] 67
-## [1] 69
-## [1] 71
-## [1] 73
-## [1] 75
-## [1] 77
-## [1] 79
-## [1] 81
-## [1] 83
-## [1] 85
-## [1] 87
-## [1] 89
-## [1] 91
-## [1] 93
-## [1] 95
-## [1] 97
-## [1] 99</code></pre>
-</div>
-<div id="section" class="section level3">
-<h3>7)</h3>
+<div id="list-all-of-the-prime-numbers-from-1-to-1000." class="section level3">
+<h3>7) List all of the prime numbers from 1 to 1000.</h3>
 </div>
 <div id="print-100-values" class="section level3">
 <h3>8) Print 100 values</h3>
 <pre class="r"><code>runif(100)</code></pre>
-<pre><code>##   [1] 0.866896285 0.688405730 0.799902168 0.408393349 0.318729196
-##   [6] 0.550611002 0.538442854 0.862519539 0.063548545 0.997436458
-##  [11] 0.370027688 0.460388091 0.992202122 0.826274256 0.668057658
-##  [16] 0.262106913 0.724075819 0.048726339 0.269691315 0.709799119
-##  [21] 0.701081690 0.065154794 0.289076306 0.570056912 0.644969930
-##  [26] 0.448884682 0.314573615 0.759650469 0.645175108 0.085427802
-##  [31] 0.424033995 0.964435116 0.091035928 0.927520743 0.395816511
-##  [36] 0.025815337 0.377419153 0.704432911 0.520848347 0.544239757
-##  [41] 0.043894282 0.564128625 0.440848420 0.891046141 0.603381342
-##  [46] 0.407799412 0.932883461 0.893961549 0.146234502 0.104994241
-##  [51] 0.713120918 0.264362230 0.105509351 0.043785986 0.795156956
-##  [56] 0.027556304 0.944606670 0.586192670 0.678177280 0.759126807
-##  [61] 0.779576834 0.008158745 0.982097114 0.899568189 0.408451627
-##  [66] 0.343257686 0.738014974 0.538184954 0.883440552 0.935500295
-##  [71] 0.043793757 0.553567841 0.403284405 0.203989706 0.749907366
-##  [76] 0.996499131 0.719788074 0.678431759 0.781640776 0.659506996
-##  [81] 0.533435856 0.115010957 0.265304737 0.332522054 0.007191487
-##  [86] 0.481231953 0.534237738 0.583667862 0.578752498 0.767544872
-##  [91] 0.925831590 0.999357265 0.129309049 0.284409540 0.571051652
-##  [96] 0.382002021 0.832458858 0.031974668 0.809584781 0.419291617</code></pre>
+<pre><code>##   [1] 0.854838192 0.041761944 0.957276943 0.691634999 0.568626384
+##   [6] 0.045889163 0.980131072 0.047304512 0.760433637 0.900161668
+##  [11] 0.807367208 0.949466931 0.107707987 0.094144176 0.411506953
+##  [16] 0.858225396 0.219584432 0.551464265 0.066783083 0.981612900
+##  [21] 0.032957726 0.636528265 0.938103179 0.427579780 0.629193794
+##  [26] 0.527883100 0.719939909 0.564268229 0.762150459 0.767134775
+##  [31] 0.184320937 0.185344517 0.793632589 0.042595207 0.457000548
+##  [36] 0.652403684 0.451461757 0.560142928 0.483899967 0.686776685
+##  [41] 0.018764283 0.381339820 0.159177120 0.049400916 0.335444458
+##  [46] 0.709881880 0.392856744 0.978928764 0.067289930 0.682489317
+##  [51] 0.950088323 0.141358149 0.214952260 0.954452200 0.489346718
+##  [56] 0.877536370 0.837198807 0.546088825 0.108560250 0.199603080
+##  [61] 0.332344631 0.587808870 0.755548413 0.040020310 0.680467912
+##  [66] 0.852768824 0.810008647 0.311138295 0.482074208 0.881466775
+##  [71] 0.365973068 0.161183851 0.465409539 0.627377230 0.096012308
+##  [76] 0.014344285 0.885749747 0.792686839 0.778637680 0.392834520
+##  [81] 0.596518988 0.483508223 0.907225254 0.136621349 0.470543137
+##  [86] 0.860090211 0.068096390 0.837548373 0.995333842 0.258582079
+##  [91] 0.066557990 0.195196992 0.004274225 0.888446353 0.010484758
+##  [96] 0.176383567 0.625934794 0.093243650 0.746701225 0.440722306</code></pre>
 </div>
-<div id="print-100-values-between-1-and-1000" class="section level3">
-<h3>9) Print 100 values between 1 and 1000</h3>
+<div id="print-100-random-numbers-within-a-specific-range" class="section level3">
+<h3>9) Print 100 random numbers within a specific range</h3>
 <pre class="r"><code>runif(100, 0 , 1000)</code></pre>
-<pre><code>##   [1] 518.757942 767.160194 633.122732 129.906049 301.107803  73.846008
-##   [7] 326.219195 266.547653 413.934047 517.076855 779.292413 728.329313
-##  [13] 279.248028 739.831005 116.177448 207.462594 789.311028 525.911061
-##  [19] 251.984632 343.039174 414.593965 621.760262 175.939614 652.403380
-##  [25] 944.529151 190.349210  40.023512 667.464063  50.128920 465.199641
-##  [31] 205.094027 722.276871 952.061410  43.933522 345.053152 632.089505
-##  [37] 632.672239 373.858404 765.024031   4.345878 124.133067 239.341436
-##  [43] 908.518251 843.087780 507.753371 655.499100 680.570342 260.148479
-##  [49] 620.856478 466.807121  42.550907   2.189890 934.264088  21.408108
-##  [55] 983.047938 720.212156 778.720349 285.149625 370.919847 500.937096
-##  [61] 643.575253 144.601110 561.513649 305.401969 531.688581 899.625302
-##  [67] 975.793606  76.258383 600.614461 622.071638  34.569638 801.658798
-##  [73] 746.697388 629.863361 848.558579 896.604590 574.732362 344.397645
-##  [79] 691.296118 642.928377 965.165456  53.393516 394.915103  97.684930
-##  [85] 586.704008 303.609228  61.917604 615.602749 574.300479 973.980954
-##  [91] 605.966302 619.906918 897.077783 607.637083 571.087353 653.691905
-##  [97] 532.329786 516.376824 834.666597 212.864242</code></pre>
+<pre><code>##   [1] 348.761926 733.197047 996.230104 611.229867  23.854589 687.515168
+##   [7] 942.123293 933.921047 371.579473 546.571021 168.143590 668.512520
+##  [13] 361.824272 782.469837 247.414131 386.402790 815.608474 833.720950
+##  [19] 149.827576 945.527730 913.782733 286.997095 301.697580 965.815742
+##  [25] 679.469719 311.136446  24.363465 581.849992 495.761821 102.825493
+##  [31]  34.536957 527.551278 715.204183 118.178706 572.372906 677.531069
+##  [37] 749.213408  84.587546 932.540750 666.935650 287.259707 797.516130
+##  [43] 748.276310 414.023569 774.946809 601.958883 560.145772 442.831306
+##  [49]  42.679236 925.596766 841.732059 854.226226 537.138449 971.516084
+##  [55]  20.350696   1.971487 986.067235 131.146801 684.879537 994.719007
+##  [61] 509.622707 224.027822 804.938622 945.867643 232.611132 528.829349
+##  [67] 513.181010 939.968627 144.474198  17.680629 202.469992  34.327653
+##  [73] 109.272174 837.650811 559.916011 225.115043 503.320602 150.292405
+##  [79] 216.243332 332.553527 396.274480 158.571510 161.759040   7.540531
+##  [85] 695.538988 820.631162 622.337718 667.736475  84.971873 734.952850
+##  [91] 840.655234 835.865212 991.204788 892.052056 888.069615 773.823879
+##  [97] 464.665218 738.858153 733.257523 648.659921</code></pre>
+</div>
+<div id="write-a-functions-for-the-mean-median-mode-range-and-standard-deviation" class="section level3">
+<h3>10) Write a functions for the mean, median, mode, range, and standard deviation</h3>
+<pre class="r"><code>#Mean
+Mean &lt;- function(x){
+  sum(x)/length(x)
+}
+
+x &lt;- c(1,2,3,4,5,6)
+Mean(x)</code></pre>
+<pre><code>## [1] 3.5</code></pre>
+<pre class="r"><code>#Median
+
+#Mode
+Mode &lt;- function(x) {
+ ux &lt;- unique(x)
+ ux[which.max(tabulate(match(x, ux)))]
+}
+
+x &lt;- c(1,2,3,3,3)
+Mode(x)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<pre class="r"><code>#Range
+
+Range &lt;- function(x) {
+  max(x) - min(x)
+}
+
+x &lt;- c(1,2,3,3,3)
+Range(x)</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code>#Standard Deviation
+
+StandardDev &lt;- function(x) {
+  sqrt(sum((x- sum(x)/length(x))^2/(length(x)-1)))
+}
+x&lt;- c(1,2,3,4)
+StandardDev(x)</code></pre>
+<pre><code>## [1] 1.290994</code></pre>
+<pre class="r"><code>sd(c(1,2,3,4))</code></pre>
+<pre><code>## [1] 1.290994</code></pre>
+</div>
+<div id="count-the-number-of-characters-in-a-string-variable" class="section level3">
+<h3>11) Count the number of characters in a string variable</h3>
+<pre class="r"><code>letters &lt;- &quot;abcdefghijk&quot;
+lettersnew &lt;- strsplit(letters,split=&quot;&quot;)
+
+lettersnew</code></pre>
+<pre><code>## [[1]]
+##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot;</code></pre>
+<pre class="r"><code>nchar(letters, type = &quot;chars&quot;)</code></pre>
+<pre><code>## [1] 11</code></pre>
+</div>
+<div id="count-the-number-of-words-in-a-string-variable" class="section level3">
+<h3>12) Count the number of words in a string variable</h3>
+<pre class="r"><code>sentence &lt;- &quot;This sentence will be seperated&quot;
+sentencesnew &lt;- strsplit(sentence,split=&quot; &quot;)
+
+sentencesnew</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;This&quot;      &quot;sentence&quot;  &quot;will&quot;      &quot;be&quot;        &quot;seperated&quot;</code></pre>
+<pre class="r"><code>sapply(sentencesnew, length)</code></pre>
+<pre><code>## [1] 5</code></pre>
+</div>
+<div id="count-the-number-of-sentences-in-a-string-variable-mark" class="section level3">
+<h3>13) Count the number of sentences in a string variable (MARK)</h3>
+<pre class="r"><code>sentences &lt;- &quot;This sentence will be seperated. This sentence will also be seperated.&quot;
+sentencessplit &lt;- strsplit(sentences,split = &quot;.&quot;)
+
+sentencessplit</code></pre>
+<pre><code>## [[1]]
+##  [1] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;
+## [24] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;
+## [47] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;
+## [70] &quot;&quot;</code></pre>
+<pre class="r"><code>sapply(sentencessplit, length)</code></pre>
+<pre><code>## [1] 70</code></pre>
+</div>
+<div id="count-the-number-of-times-a-specific-character-occurs-in-a-string-variable" class="section level3">
+<h3>14) Count the number of times a specific character occurs in a string variable</h3>
+<pre class="r"><code>library(stringr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;stringr&#39;</code></pre>
+<pre><code>## The following object is masked _by_ &#39;.GlobalEnv&#39;:
+## 
+##     sentences</code></pre>
+<pre class="r"><code>string &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;)
+
+sum(str_count(string, pattern = &quot;a&quot;))</code></pre>
+<pre><code>## [1] 2</code></pre>
+</div>
+<div id="do-a-logical-test-to-see-if-one-word-is-found-within-the-text-of-another-string-variable-mark" class="section level3">
+<h3>15) Do a logical test to see if one word is found within the text of another string variable (MARK)</h3>
+<pre class="r"><code>word &lt;- &quot;word&quot;
+sentence &lt;- &quot;There is a word&quot;
+sentence2 &lt;- c(&quot;There&quot;, &quot;is&quot;, &quot;a&quot;, &quot;word&quot;)
+
+word%in%sentence</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>word%in%sentence2</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="print-the-computer-time-in-milliseconds" class="section level3">
+<h3>16) Print the computer time in milliseconds</h3>
+<pre class="r"><code>print(as.numeric(Sys.time())*1000, digits=15)</code></pre>
+<pre><code>## [1] 1551069486479.4</code></pre>
+</div>
+<div id="measure-how-long-a-piece-of-code-takes-to-run-by-measuring-the-time-before-the-code-is-run-and-after-the-code-is-run-and-taking-the-difference-to-find-the-total-time" class="section level3">
+<h3>17) Measure how long a piece of code takes to run by measuring the time before the code is run, and after the code is run, and taking the difference to find the total time</h3>
+<pre class="r"><code>start.time &lt;- Sys.time()
+
+Sum &lt;- 0
+
+for (i in c(1:100)){
+  Sum = Sum + i
+}
+
+Sum</code></pre>
+<pre><code>## [1] 5050</code></pre>
+<pre class="r"><code>end.time &lt;- Sys.time()
+time.taken &lt;- end.time - start.time
+time.taken</code></pre>
+<pre><code>## Time difference of 0.008937836 secs</code></pre>
+</div>
+<div id="read-a-.txt-file-or-.csv-file-into-a-variable" class="section level3">
+<h3>18) Read a .txt file or .csv file into a variable</h3>
+<pre class="r"><code>datatxt &lt;- read.txt(&quot;\Pathway\filename.txt&quot;)
+datacsv &lt;- read.csv(&quot;\Pathway\filename.csv&quot;)</code></pre>
+</div>
+<div id="output-the-contents-of-a-variable-to-a-.txt-file" class="section level3">
+<h3>19) Output the contents of a variable to a .txt file</h3>
+<pre class="r"><code>write.csv(&quot;variable&quot;, &quot;pathway&quot;)</code></pre>
+</div>
+<div id="create-a-variable-that-stores-a-20x20-matrix-of-random-numbers" class="section level3">
+<h3>20) Create a variable that stores a 20x20 matrix of random numbers</h3>
+<pre class="r"><code>a &lt;- matrix(sample(1:400, 400), ncol=20,nrow=20)
+a</code></pre>
+<pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13]
+##  [1,]  396  282  181  179  256  177  265   18   55    64   101   257    16
+##  [2,]  232  184  145  299  273  152   88  381  357   362   221   393   303
+##  [3,]  210  379  296   84  236  118  319   74   28   202    73   161   320
+##  [4,]  220  287  219  293  103  180  262  361   36   339    45   275   264
+##  [5,]   79  247  163  139  333   53  321   51  352   229   116    96   274
+##  [6,]  318  110   83   81  155   89  345  209  136     6   311    71   376
+##  [7,]  290   27  342  367  173  112  394   52  291    17   371   223   341
+##  [8,]  194   42   14   44   24   87  337  373  216   310   316    57   336
+##  [9,]  338  212  334   98   41    1  227  207  167    91   128    30   228
+## [10,]    9   40  176  292  351   20  141    8  144   143   259   324   204
+## [11,]  159  372   49  147   86  309  102  215   85   364   211   392   132
+## [12,]   50  354   11   19  386  378  300   65  114   109   302    56   315
+## [13,]   80   32  250  268  398  189  199  117  164   295   234    13   330
+## [14,]  269  331  217   66  200  233  343    2  307   270   348    60   328
+## [15,]  366  166  224   37  346  106  151  130  245    26   377   395   239
+## [16,]  271  196  272  399  188  241  100  165  169   153   349   281   347
+## [17,]   23   47  263  231  138  240  360  323  306   254   182   226   183
+## [18,]  244  197  133  384  297   90  313  149  125    97   288     5   312
+## [19,]  248  203  363   68  389   63  235  267  187   119   213   253   246
+## [20,]   95  168   29   15  242  252  359  289  222   368   277    58   198
+##       [,14] [,15] [,16] [,17] [,18] [,19] [,20]
+##  [1,]    31   171    35    62   261    69   374
+##  [2,]   390   150   382   175    77   160   185
+##  [3,]   174    46   370   325   190   137   170
+##  [4,]   172    67   237   191   111   266   284
+##  [5,]   400   205   201   156   134   276     3
+##  [6,]   298   283   327   249   158   358    54
+##  [7,]   238    21   140   279   122   308    12
+##  [8,]    61   397   230   225   294   344   129
+##  [9,]    75   218   142   206   388    70   278
+## [10,]   304   120   350    82   369   260   380
+## [11,]   214    43   135     4    25    99   387
+## [12,]   332   355   340   317   353    94   162
+## [13,]   391   104   193    38   375    78   383
+## [14,]   255    92   208   131   258    34   123
+## [15,]   127   280   105    10    76   322   124
+## [16,]   356   329   286   385    22   157   314
+## [17,]   146    59   192   186   108   113    93
+## [18,]   121   126   178   365   115   285   305
+## [19,]   243    33   154   335   251   195   301
+## [20,]   107    48     7   326    72   148    39</code></pre>
+</div>
+<div id="output-any-matrix-to-a-txt-file-using-commas-or-tabs-to-separate-column-values-and-new-lines-to-separate-row-values" class="section level3">
+<h3>21) Output any matrix to a txt file using commas or tabs to separate column values, and new lines to separate row values</h3>
+<pre class="r"><code>write.txt(variable, pathway, sep = &quot;,&quot; or &quot;\t&quot;, dec = &quot;.&quot;)</code></pre>
+</div>
+</div>
+<div id="hard" class="section level2">
+<h2>Hard</h2>
+<div id="list-the-numbers-from-1-to-100-with-the-following-constraints.-if-the-number-can-be-divided-by-three-evenly-then-print-fizz-instead-of-the-number.-if-the-number-can-be-divided-by-five-evenly-then-print-buzz-instead-of-the-number.-finally-if-the-number-can-be-divided-by-three-and-five-evenly-then-print-fizzbuzz-instead-of-the-number.-mark" class="section level3">
+<h3>1) List the numbers from 1 to 100 with the following constraints. If the number can be divided by three evenly, then print Fizz instead of the number. If the number can be divided by five evenly, then print Buzz instead of the number. Finally, if the number can be divided by three and five evenly, then print FizzBuzz instead of the number. (MARK)</h3>
+<pre class="r"><code>for (i in as.numeric(c(1:100))){
+  if ((i %% 3 == 0) &amp; (i %% 5 == 0)) {
+      print(i)
+  }
+  else if (i %% 3 == 0) {
+  print(&quot;Fizz&quot;)
+  }
+  else if (i %% 5 == 0)  {
+  print(&quot;Fizz&quot;)
+  }
+}</code></pre>
 </div>
 </div>
 </div>

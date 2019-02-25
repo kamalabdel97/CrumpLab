@@ -17,59 +17,137 @@ output: html_document
 <div class="row" style="padding-top: 30px;">
 <div class="col-sm-6">
 
-```{r setup, include=TRUE}
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE, eval = FALSE)
 ```
 
 
-#General
-```{r, eval=FALSE}
-#Gives description of an R topic. Usually includes a definition, general code, example of application
+#General Bits
+```{r, eval=TRUE}
+#help() - Gives description of an R topic. Usually includes a definition, general code, example of application
 
 help(mean)
 
 ```
 
-```{r, eval=FALSE}
-#Gives a description of an R topic
+```{r, eval=TRUE}
+#? - Gives a description of an R topic
 
-?
- 
 ?median
 
 ```
 
+```{r, eval=FALSE}
+#ls() - Lists variables in the environment
+
+ls()
+
+```
+
+```{r, eval=FALSE}
+#dir() - Lists files in default directory
+
+dir()
+
+```
+
+```{r, eval=FALSE}
+#list.files() - Lists files in default directory
+
+list.files()
+
+```
+
+
+
 #Input and Output
+```{r, eval=FALSE}
+#save() - Saves files in R
+
+save(file)
+```
+
+```{r, eval=FALSE}
+#load() - Loads a file in R
+
+load(file)
+```
+
 ```{r, eval=TRUE}
-#Loads a package to be used in an R program
+#data() - Loads a dataset from R
 
-#library() 
+data()
+```
 
-#Load ggplot2 package
+```{r, eval=TRUE}
+#library() - Loads a package to be used in an R program
 
 library(ggplot2)
 ```
 
+```{r, eval=FALSE}
+#read.table() - Reads a file into table in R
+
+read.table(file)
+```
+
+```{r, eval=FALSE}
+#read.csv() - Reads a csv file into table in R
+
+read.csv(file)
+```
+
+```{r, eval=FALSE}
+#scan() - Read data into a vector or list from the console or file
+
+x <- scan()
+x
+
+```
+
+
 ```{r, eval=TRUE}
-#Prints an argument
+#print() - Prints an argument
 
 print("This was printed")
 ```
 
+```{r, eval=TRUE}
+#cat() -  function prints the objects, concatenates the representations
+
+x <- "EGG"
+y <- "PERSON"
+
+cat(x,y)
+```
+
+```{r, eval=FALSE}
+#write.table() - Writes a variable as a table in to file
+
+x <- sample(c(1:100), 100)
+
+write(x, pathway)
+```
 
 #Data Creation
 ```{r, eval=TRUE}
-#Indicates what values to included in a function. These could be column indeces or values.
+#c() - Concatenates values, variables together
 
-#from:to (where from and to are replaced with numbers, e.g. 1:10)  
+x <- (1:10)
+y <- (11:20)
 
-c(1:10)
+c(x,y)
+```
 
+```{r, eval=TRUE}
+#from:to - Creates a list of numbers at from a starting value to an ending value.
+
+1:10
 
 ```
 
 ```{r, eval=TRUE}
-#Generates a standard pattern from beginning to end, by a standard increase or decrease
+#seq() - Generates a standard pattern from beginning to end, by a given increment or decrement
 
 seq(1,100,5) 
 
@@ -78,16 +156,14 @@ seq(1,100,5)
 
 
 ```{r, eval=TRUE}
-#Repeats arguments in the given order, for a number of iterations
+#rep() - Repeats arguments in the given order, for a number of iterations
 
 rep(1:10,2)
 
 ```
 
 ```{r, eval=TRUE}
-#Converts variables into a data frame
-
-#data.frame() 
+#data.frame() - Converts variables into a data frame
 
 x <- (1:5)
 y <- (6:10)
@@ -97,32 +173,30 @@ z
 ```
 
 ```{r, eval=TRUE}
-#Converts variables into a data frame
+#list() <- Creates a vector list of variables
 
-#list() 
-
-```
-
-```{r, eval=TRUE}
-#Creates a matrix, a set that contains at least
-
-#matrix()  
+list("A", "B", "C", "D") 
 
 ```
 
 ```{r, eval=TRUE}
-#Converts an object to factor class  
+#matrix() - Creates a matrix, a set that contains at least
 
+matrix(c(1:6),nrow=3,ncol=2)
+
+```
+
+```{r, eval=TRUE}
+#factor() - Converts an object to factor class  
 
 x <- c("Male", "Female", "Male", "Female")
 
-class(x)
-
 factor(x)
+class(factor(x))
 ```
 
 ```{r, eval=TRUE}
-#Combines vector, matrix or data frame by rows
+#rbind() - Combines vector, matrix or data frame by rows
 x <- matrix(c(1:6),nrow=3,ncol=2,byrow=TRUE)
 y <- matrix(c(1:6),nrow=3,ncol=2,byrow=TRUE)
 
@@ -130,7 +204,7 @@ rbind(x,y)
 ```
 
 ```{r, eval=TRUE}
-#Combines vector, matrix or data frame by columns 
+#cbind() - Combines vector, matrix or data frame by columns 
 
 #cbind() 
 x <- matrix(c(1:6),nrow=3,ncol=2,byrow=TRUE)
@@ -138,53 +212,212 @@ y <- matrix(c(1:6),nrow=3,ncol=2,byrow=TRUE)
 
 cbind(x,y)
 ```
+
 ##Variable conversion
-
+###Indexing Vectors
 ```{r, eval=TRUE}
-#Converts variable to numeric data type
+#x[n] - nth element
 
-x <- c(1:5)
-y <- c(1:5)
+x <- sample(c(1:100), 10)
+x
+x[2]
 
-
-
-as.data.frame(x,y)
 ```
 
 ```{r, eval=TRUE}
-#Converts variable to numeric data type
+#x[-n] - All but nth element
+
+x <- sample(c(1:10), 10)
+x
+x[-2]
+
+```
+
+```{r, eval=TRUE}
+#x[(1:n)] elements from n+1 to the end
+
+
+x <- sample(c(1:10), 10)
+x
+x[(1:4)] 
+
+```
+
+```{r, eval=TRUE}
+#x[-(1:n)] - Elements from n+1 to the end
+
+x <- sample(c(1:10), 10)
+x
+x[-(1:4)]
+
+```
+
+```{r, eval=TRUE}
+#x[c(n, n, n)] - Specific n elements
+
+
+x <- sample(c(1:10), 10)
+x
+x[c(1,2,10)] 
+
+```
+
+```{r, eval=TRUE}
+#x[“name”] - Elements named “name”
+
+
+x <- rep(c("X", "Y"), 2)
+x
+x["X"] 
+
+```
+
+```{r, eval=TRUE}
+#x[x>n] - All elements greater than n
+
+x <- 1:10
+x
+x[x>4] 
+
+```
+
+```{r, eval=TRUE}
+#x[x > n1 & x < n2] - All elements greather than n1 and less than n2
+
+x <- 1:10
+x
+x[x>4 & x < 8] 
+
+```
+
+```{r, eval=TRUE}
+#x[x %in% c(“a”,“and”,“the”)] - All elements in given set
+
+x <- 1:10
+x
+x[x %in% c(1, 2, 10, 30)]
+
+```
+
+###Indexing lists
+```{r, eval=TRUE}
+#x[n] - List with elements n
+
+x <- list("First", "Second", "Third")
+x
+x[2]
+
+```
+
+```{r, eval=TRUE}
+#x[[n]] - nth element of the list
+
+x <- list("First", "Second", "Third")
+x
+x[[1]]
+
+```
+
+```{r, eval=TRUE}
+#x[[“name”]] - Element of the list named “name”
+
+x <- list("First", "Second", "Third")
+x
+x[["First"]]
+
+```
+
+```{r, eval=TRUE}
+#x$name - Id
+
+x <- list("First", "Second", "Third")
+x
+x$"First"
+```
+
+###Indexing Matrices
+```{r, eval=TRUE}
+#x[a,b] - Element at row a, column b
+
+x <- matrix(c(1:9),nrow=3,ncol=3)
+x
+x[3,2]
+```
+
+```{r, eval=TRUE}
+#x[i,] - Row a
+
+x <- matrix(c(1:9),nrow=3,ncol=3)
+x
+x[1,]
+```
+
+```{r, eval=TRUE}
+#x[,b] - Column b
+
+x <- matrix(c(1:9),nrow=3,ncol=3)
+x
+x[,2]
+```
+
+```{r, eval=TRUE}
+#x[,c(1,2)] - columns 1 and 3
+
+x <- matrix(c(1:9),nrow=3,ncol=3)
+x
+x[,c(1,3)]
+```
+
+```{r, eval=TRUE}
+#x[“name”,] - Row named “name”
+
+x <- matrix(c(1:9),nrow=3,ncol=3)
+x
+x[1,]
+```
+
+###Indexing data frames (matrix indexing plus the following)
+```{r, eval=TRUE}
+#x[“name”,] - Column named “name”
+
+x <- (1:3)
+y <- (4:6)
+z <- data.frame(x,y)
+z
+z["x"]
+
+```
+
+```{r, eval=TRUE}
+#x$nameid - Column name 
+
+x <- (1:3)
+y <- (4:6)
+z <- data.frame(x,y)
+z
+z$x
+
+```
+
+##Variable conversion
+
+```{r, eval=TRUE}
+#as.data.frame() - Converts variable to a dataframe
+
+x <- c(1:5)
+x
+as.data.frame(x)
+```
+
+```{r, eval=TRUE}
+#as.numeric() - Converts variable to numeric data type
 
 x <- c("1","2","3","4")
 
 class(x)
 
-as.numeric(x) 
+class(as.numeric(x)) 
 ```
-
-```{r, eval=TRUE}
-#Combines vector, matrix or data frame by columns 
-
-as.data.frame(x) 
-
-x <- (1:5)
-y <- (6:10)
-z <- data.frame(x,y)
-
-z
-```
-
-```{r, eval=TRUE}
-#Combines vector, matrix or data frame by columns 
-
-as.data.frame(x) 
-
-x <- (1:5)
-y <- (6:10)
-z <- data.frame(x,y)
-
-z
-```
-
 
 
 ```{r, eval=TRUE}
@@ -209,15 +442,22 @@ as.character(x)
 
 ##Variable information
 ```{r, eval=TRUE}
-#Determines if variable is "NA" value. Returns True or False.
+#is.na() - Determines if variable is "NA" value. Returns True or False.
 
-#is.na() 
+x <- NA
+is.na(x)
+
 ```
 
 ```{r, eval=TRUE}
-#Determines if value is undefined. Returns True or False
+#is.null() - Determines if value is undefined. Returns True or False
 
-#is.null() 
+j <- NULL
+is.null(j)
+
+k <- 1
+is.null(k) 
+
 ```
 
 ```{r, eval=TRUE}
@@ -233,17 +473,13 @@ is.data.frame(z)
 ```{r, eval=TRUE}
 #Determines if value is a numeric data type. Returns True or False.
 
-x <- (1:5)
+x <- c(1,2,3)
 
 is.numeric(x) 
-```
 
-```{r, eval=TRUE}
-#Determines if value is a numeric data type. Returns True or False.
+y <- c("1", "2", "3")
 
-x <- c("1", "2", "3")
-
-is.numeric(x) 
+is.numeric(y) 
 ```
 
 ```{r, eval=TRUE}
@@ -253,7 +489,6 @@ x <- c("1", "2", "3")
 
 is.character(x) 
 ```
-
 
 ```{r, eval=TRUE}
 #Determines length of value
@@ -272,12 +507,29 @@ dim(x)
 ```
 
 ```{r, eval=TRUE}
-#Identifies the number of rows in x
+#dimnames() - Dimension names of an object
+
+x <- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE)
+
+dimnames(x) 
+```
+
+```{r, eval=TRUE}
+#nrow() - Identifies the number of rows in x
 
 x <- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE)
 
 nrow(x) 
 ```
+
+```{r, eval=TRUE}
+#ncol() - Identifies the number of columns in x
+
+x <- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE)
+
+ncol(x) 
+```
+
 
 ```{r, eval=TRUE}
 #Identifies data type of variable
@@ -297,41 +549,27 @@ attributes(x)
 
 #Data selection and manipulation
 ```{r, eval=TRUE}
-#Accesses the attribute of an object attribute
+#which.max() - Identifies index that has the highest value in a variable
 
-x <- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE)
-
-attributes(x)
+which.max(c(32,34,3,2,212,33243,34234,532))
 ```
 
+
 ```{r, eval=TRUE}
-#Identifies index that has the lowest value in a variable
+#which.min() - Identifies index that has the lowest value in a variable
 
 which.min(c(32,34,3,2,212,33243,34234,532))
 ```
 
 ```{r, eval=TRUE}
-#Identifies index that has the highest value in a variable
-
-which.min(c(32,34,3,2,212,33243,34234,532))
-```
-
-```{r, eval=TRUE}
-#Identifies index that has the highest value in a variable
-
-which.min(c(32,34,3,2,212,33243,34234,532))
-```
-
-```{r, eval=TRUE}
-#Identifies index of an argument that fulfills a condition
+#which() - Identifies index of an argument that fulfills a condition
 
 x <- c(20,3,2, 4,30,2,3,5,32,432)
 which(x > 100)
-
 ```
 
 ```{r, eval=TRUE}
-#Arranges a vector in either descending or ascending order
+#sort() - Arranges a vector in either descending or ascending order
 
 x <- c(20,3,2, 4,30,2,3,5,32,432)
 
@@ -339,86 +577,118 @@ sort(x,decreasing = F)
 ```
 
 ```{r, eval=TRUE}
-#Returns unique values of an argument
+#unique() = Returns unique values of a variable
 
 x <- c(1,1,1,1,1,1,2,2,2,2,2,2,2,23,3,3,3,3,33,3,3)
 
 unique(x)
 ```
 
+```{r, eval=TRUE}
+#table() - Converts a variable into a table and counts the frequency of its unique values
+
+x <- c(1,1,1,1,1,1,2,2,2,2,2,2,2,23,3,3,3,3,33,3,3)
+
+table(x)
+```
+
+```{r, eval=TRUE}
+#sample() - Creates a random sample of numbers, letters, etc.
+
+x <- sample(1:10, 10)
+
+x
+```
+
 ##Math
 ```{r, eval=TRUE}
-#Identifies maximum value of a set of values
+#max()- Identifies maximum value of a set of values
 
 max(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  
 ```
 
 ```{r, eval=TRUE}
-#Identifies minimum value of a set of values
+#min() - Identifies minimum value of a set of values
 
-max(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  
+min(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  
 ```
 
 ```{r, eval=TRUE}
-#Identifies range of a set of values
+#range() - Identifies range of a set of values
 
 range(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  
 ```
 
 ```{r, eval=TRUE}
-#Identifies sum of a set of values
+#sum() -Identifies sum of a set of values
 
 sum(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  
 ```
 
 ```{r, eval=TRUE}
-#Identifies mean of a set of values
+#mean() - Identifies mean of a set of values
 
 mean(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  
 ```
 
 ```{r, eval=TRUE}
-#Identifies median of a set of values
+#median() - Identifies median of a set of values
 
 median(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  
 ```
 
 ```{r, eval=TRUE}
-#Identifies variance of a set of values
+#var() - Identifies variance of a set of values
 
 var(c(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23))  
 ```
 
 ```{r, eval=TRUE}
-#Identifies correlation of a set of values
+#sd() - Identifies standard deviation of a set of values
+
+sd(c(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23))  
+```
+
+```{r, eval=TRUE}
+#cor() - Identifies correlation of a set of values
 
 cor(c(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23), c(1,2,23,3,4,4,5,5,6,7,4,3,3,2,3,5,6))  
 ```
 
 ```{r, eval=TRUE}
-#Identifies absolute value
+#round() - Rounds a value to a given place
+
+cor(c(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23), c(1,2,23,3,4,4,5,5,6,7,4,3,3,2,3,5,6))
+round((cor(c(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23), c(1,2,23,3,4,4,5,5,6,7,4,3,3,2,3,5,6))), 2)
+```
+
+```{r, eval=TRUE}
+#abs() - Identifies absolute value
 
 abs(-100 + 0) 
 ```
 
-##Matrix
+##Matrices
 ```{r, eval=TRUE}
-#Returns the sum from each row of x
+#t() - Transposes a dataframe or matrix
 
 x <- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE) 
 
 x
-
-rowSums(x)
+t(x)
 ```
 
+```{r, eval=TRUE}
+#diag() - Diagonal matrix of x
 
+x <- matrix(c(3,5,7,1,9,4),nrow=3,ncol=3,byrow=TRUE) 
 
-<!-- t() -->
-  <!-- diag() -->
-  
-  ```{r, eval=TRUE}
-#Returns the sum from each column of x
+x
+diag(x)
+```
+
+```{r, eval=TRUE}
+#colSums() - Returns the sum from each row of x
 
 x <- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE) 
 
@@ -447,57 +717,163 @@ x
 colMeans(x)
 ```
 
-<!-- ##Advanced Data processing -->
-  <!-- ```{r, eval=TRUE} -->
-  <!-- #Returns the mean from each column of x -->
-  
-  <!-- apply() -->
-  <!-- aggregate() - Group data by a specific group -->
-  <!-- ``` -->
-  
-  ##Strings
-  ```{r, eval=TRUE}
-#Converts argument to character data type and concatentates them together
 
-paste(1,2,3,4,5)
+##Advanced Data Processing
+```{r, eval=TRUE}
+#aaply() - Apply a function on multiple cases at once
+
+a <- c(T, F, T)
+b <- c(1,2,3)
+c <- c("First", "Second", "Third")
+
+d <- data.frame(a,b,c)
+apply(d, c(1,2), class)
+
 ```
 
 ```{r, eval=TRUE}
-#Splits character vector x into substrings by matching substring
+#aggregate() - Takes an aggregate of a given set of values
+
+Score <- sample(c(1:100), 10)
+Gender <- sample(c("Boy", "Girl"), 10, replace = T)
+FinalGrades <- data.frame(Score,Gender)
+aggregate(Score ~ Gender, FinalGrades, mean)
+
+```
+
+##Strings
+```{r, eval=TRUE}
+#paste() - Concatenate vectors after converting to character.
+
+b <- 1:10
+
+c <- paste(b)
+b
+c
+
+```
+
+```{r, eval=TRUE}
+#strsplit() - Splits character vector x into substrings by matching substring
 
 strsplit("BR_OOK_LYN_CO_LL_EGE", "_")
 ```
 
 ```{r, eval=TRUE}
-#Splits character vector x into substrings by matching substring
-
-strsplit("BR_OOK_LYN_CO_LL_EGE", "_")
-```
-
-```{r, eval=TRUE}
-#Converts text to lower case
+#tolower() - Converts text to lower case
 
 tolower("LOWERCASE")  
 ```
 
 ```{r, eval=TRUE}
-#Converts text to lower case
+#toupper() - Converts text to lower case
 
 toupper("uppercase")  
 ```
 
-##Distributions
+##Plotting
 ```{r, eval=TRUE}
-#Base histogram plot
+#hist() - Base histogram plot
 
 x <- rnorm(100, 45, 2)
 hist(x)
 ```
 
 ```{r, eval=TRUE}
-#Plots a regular baseplot based on the type and number of vairables
+#plot() - Plots a regular baseplot based on the type and number of vairables
 
 x <- rnorm(100, 45, 2)
 y <- rnorm(100, 45, 2)
 plot(x,y) 
 ```
+
+##Distributions
+```{r, eval=TRUE}
+#rnorm() - Compute a series of values that would make a normal distribution
+
+x <- rnorm(100, 45, 2)
+x
+```
+
+```{r, eval=TRUE}
+#runif() - Compute a series of values within a range
+
+x <- runif(100, 45, 2)
+x
+```
+
+##Programming
+```{r, eval=TRUE}
+#Function
+
+SelfSquare <- function(x){
+  x <- x * x
+}
+
+print(SelfSquare(4))
+```
+
+```{r, eval=TRUE}
+#For loop
+
+for (i in c(1:5)){
+  print(i)
+}
+```
+
+```{r, eval=TRUE}
+#While loop
+i <- 1
+while(i <= 5){
+  print(i)
+  print("i is less than or equal to 5")
+  i <- i +1
+}
+```
+
+```{r, eval=TRUE}
+#If else 
+i <- 6
+if (i <= 5){
+  print(i)
+  print("i is less than or equal to 5")
+} else {
+  print(i)
+  print("i is greater than 5")
+}
+```
+
+```{r, eval=TRUE}
+#return() - Sends back a value from within a function in regards to it's function
+
+addition <- function(x){
+  if (x > 5){
+    return(x +1)
+  } else{
+    return(x +2)
+  }
+}
+addition(1)
+addition(10)
+
+
+```
+
+```{r, eval=TRUE}
+#break() - Usually used in while loops to fall out of the loop
+
+i <- 1
+while(i <= 5){
+  print(i)
+  print("i is less than or equal to 5")
+  i <- i +1
+  if(i == 3){
+    print(i)
+    print("Here is where the loop will break")
+    break
+  }
+}
+```
+
+
+

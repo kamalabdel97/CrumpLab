@@ -321,51 +321,89 @@ $(document).ready(function () {
 <div class="col-sm-6">
 
 
-<pre class="r"><code>knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE, eval = FALSE)</code></pre>
-<div id="general" class="section level1">
-<h1>General</h1>
-<pre class="r"><code>#Gives description of an R topic. Usually includes a definition, general code, example of application
+
+
+<div id="general-bits" class="section level1">
+<h1>General Bits</h1>
+<pre class="r"><code>#help() - Gives description of an R topic. Usually includes a definition, general code, example of application
 
 help(mean)</code></pre>
-<pre class="r"><code>#Gives a description of an R topic
+<pre class="r"><code>#? - Gives a description of an R topic
 
-?
- 
 ?median</code></pre>
+<pre class="r"><code>#ls() - Lists variables in the environment
+
+ls()</code></pre>
+<pre class="r"><code>#dir() - Lists files in default directory
+
+dir()</code></pre>
+<pre class="r"><code>#list.files() - Lists files in default directory
+
+list.files()</code></pre>
 </div>
 <div id="input-and-output" class="section level1">
 <h1>Input and Output</h1>
-<pre class="r"><code>#Loads a package to be used in an R program
+<pre class="r"><code>#save() - Saves files in R
 
-#library() 
+save(file)</code></pre>
+<pre class="r"><code>#load() - Loads a file in R
 
-#Load ggplot2 package
+load(file)</code></pre>
+<pre class="r"><code>#data() - Loads a dataset from R
+
+data()</code></pre>
+<pre class="r"><code>#library() - Loads a package to be used in an R program
 
 library(ggplot2)</code></pre>
-<pre class="r"><code>#Prints an argument
+<pre class="r"><code>#read.table() - Reads a file into table in R
+
+read.table(file)</code></pre>
+<pre class="r"><code>#read.csv() - Reads a csv file into table in R
+
+read.csv(file)</code></pre>
+<pre class="r"><code>#scan() - Read data into a vector or list from the console or file
+
+x &lt;- scan()
+x</code></pre>
+<pre class="r"><code>#print() - Prints an argument
 
 print(&quot;This was printed&quot;)</code></pre>
 <pre><code>## [1] &quot;This was printed&quot;</code></pre>
+<pre class="r"><code>#cat() -  function prints the objects, concatenates the representations
+
+x &lt;- &quot;EGG&quot;
+y &lt;- &quot;PERSON&quot;
+
+cat(x,y)</code></pre>
+<pre><code>## EGG PERSON</code></pre>
+<pre class="r"><code>#write.table() - Writes a variable as a table in to file
+
+x &lt;- sample(c(1:100), 100)
+
+write(x, pathway)</code></pre>
 </div>
 <div id="data-creation" class="section level1">
 <h1>Data Creation</h1>
-<pre class="r"><code>#Indicates what values to included in a function. These could be column indeces or values.
+<pre class="r"><code>#c() - Concatenates values, variables together
 
-#from:to (where from and to are replaced with numbers, e.g. 1:10)  
+x &lt;- (1:10)
+y &lt;- (11:20)
 
-c(1:10)</code></pre>
+c(x,y)</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20</code></pre>
+<pre class="r"><code>#from:to - Creates a list of numbers at from a starting value to an ending value.
+
+1:10</code></pre>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<pre class="r"><code>#Generates a standard pattern from beginning to end, by a standard increase or decrease
+<pre class="r"><code>#seq() - Generates a standard pattern from beginning to end, by a given increment or decrement
 
 seq(1,100,5) </code></pre>
 <pre><code>##  [1]  1  6 11 16 21 26 31 36 41 46 51 56 61 66 71 76 81 86 91 96</code></pre>
-<pre class="r"><code>#Repeats arguments in the given order, for a number of iterations
+<pre class="r"><code>#rep() - Repeats arguments in the given order, for a number of iterations
 
 rep(1:10,2)</code></pre>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10  1  2  3  4  5  6  7  8  9 10</code></pre>
-<pre class="r"><code>#Converts variables into a data frame
-
-#data.frame() 
+<pre class="r"><code>#data.frame() - Converts variables into a data frame
 
 x &lt;- (1:5)
 y &lt;- (6:10)
@@ -378,23 +416,37 @@ z</code></pre>
 ## 3 3  8
 ## 4 4  9
 ## 5 5 10</code></pre>
-<pre class="r"><code>#Converts variables into a data frame
+<pre class="r"><code>#list() &lt;- Creates a vector list of variables
 
-#list() </code></pre>
-<pre class="r"><code>#Creates a matrix, a set that contains at least
+list(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;) </code></pre>
+<pre><code>## [[1]]
+## [1] &quot;A&quot;
+## 
+## [[2]]
+## [1] &quot;B&quot;
+## 
+## [[3]]
+## [1] &quot;C&quot;
+## 
+## [[4]]
+## [1] &quot;D&quot;</code></pre>
+<pre class="r"><code>#matrix() - Creates a matrix, a set that contains at least
 
-#matrix()  </code></pre>
-<pre class="r"><code>#Converts an object to factor class  
-
+matrix(c(1:6),nrow=3,ncol=2)</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## [3,]    3    6</code></pre>
+<pre class="r"><code>#factor() - Converts an object to factor class  
 
 x &lt;- c(&quot;Male&quot;, &quot;Female&quot;, &quot;Male&quot;, &quot;Female&quot;)
 
-class(x)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>factor(x)</code></pre>
+factor(x)</code></pre>
 <pre><code>## [1] Male   Female Male   Female
 ## Levels: Female Male</code></pre>
-<pre class="r"><code>#Combines vector, matrix or data frame by rows
+<pre class="r"><code>class(factor(x))</code></pre>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<pre class="r"><code>#rbind() - Combines vector, matrix or data frame by rows
 x &lt;- matrix(c(1:6),nrow=3,ncol=2,byrow=TRUE)
 y &lt;- matrix(c(1:6),nrow=3,ncol=2,byrow=TRUE)
 
@@ -406,7 +458,7 @@ rbind(x,y)</code></pre>
 ## [4,]    1    2
 ## [5,]    3    4
 ## [6,]    5    6</code></pre>
-<pre class="r"><code>#Combines vector, matrix or data frame by columns 
+<pre class="r"><code>#cbind() - Combines vector, matrix or data frame by columns 
 
 #cbind() 
 x &lt;- matrix(c(1:6),nrow=3,ncol=2,byrow=TRUE)
@@ -419,67 +471,244 @@ cbind(x,y)</code></pre>
 ## [3,]    5    6    5    6</code></pre>
 <div id="variable-conversion" class="section level2">
 <h2>Variable conversion</h2>
-<pre class="r"><code>#Converts variable to numeric data type
+<div id="indexing-vectors" class="section level3">
+<h3>Indexing Vectors</h3>
+<pre class="r"><code>#x[n] - nth element
+
+x &lt;- sample(c(1:100), 10)
+x</code></pre>
+<pre><code>##  [1] 70 62  1  8 50 49 19 93 44 82</code></pre>
+<pre class="r"><code>x[2]</code></pre>
+<pre><code>## [1] 62</code></pre>
+<pre class="r"><code>#x[-n] - All but nth element
+
+x &lt;- sample(c(1:10), 10)
+x</code></pre>
+<pre><code>##  [1]  4  6  5  8 10  1  7  2  9  3</code></pre>
+<pre class="r"><code>x[-2]</code></pre>
+<pre><code>## [1]  4  5  8 10  1  7  2  9  3</code></pre>
+<pre class="r"><code>#x[(1:n)] elements from n+1 to the end
+
+
+x &lt;- sample(c(1:10), 10)
+x</code></pre>
+<pre><code>##  [1]  7  3  6  4  2  1  5  8  9 10</code></pre>
+<pre class="r"><code>x[(1:4)] </code></pre>
+<pre><code>## [1] 7 3 6 4</code></pre>
+<pre class="r"><code>#x[-(1:n)] - Elements from n+1 to the end
+
+x &lt;- sample(c(1:10), 10)
+x</code></pre>
+<pre><code>##  [1]  6  3  8  1 10  7  2  5  4  9</code></pre>
+<pre class="r"><code>x[-(1:4)]</code></pre>
+<pre><code>## [1] 10  7  2  5  4  9</code></pre>
+<pre class="r"><code>#x[c(n, n, n)] - Specific n elements
+
+
+x &lt;- sample(c(1:10), 10)
+x</code></pre>
+<pre><code>##  [1]  3  1 10  2  9  8  4  6  5  7</code></pre>
+<pre class="r"><code>x[c(1,2,10)] </code></pre>
+<pre><code>## [1] 3 1 7</code></pre>
+<pre class="r"><code>#x[“name”] - Elements named “name”
+
+
+x &lt;- rep(c(&quot;X&quot;, &quot;Y&quot;), 2)
+x</code></pre>
+<pre><code>## [1] &quot;X&quot; &quot;Y&quot; &quot;X&quot; &quot;Y&quot;</code></pre>
+<pre class="r"><code>x[&quot;X&quot;] </code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code>#x[x&gt;n] - All elements greater than n
+
+x &lt;- 1:10
+x</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code>x[x&gt;4] </code></pre>
+<pre><code>## [1]  5  6  7  8  9 10</code></pre>
+<pre class="r"><code>#x[x &gt; n1 &amp; x &lt; n2] - All elements greather than n1 and less than n2
+
+x &lt;- 1:10
+x</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code>x[x&gt;4 &amp; x &lt; 8] </code></pre>
+<pre><code>## [1] 5 6 7</code></pre>
+<pre class="r"><code>#x[x %in% c(“a”,“and”,“the”)] - All elements in given set
+
+x &lt;- 1:10
+x</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code>x[x %in% c(1, 2, 10, 30)]</code></pre>
+<pre><code>## [1]  1  2 10</code></pre>
+</div>
+<div id="indexing-lists" class="section level3">
+<h3>Indexing lists</h3>
+<pre class="r"><code>#x[n] - List with elements n
+
+x &lt;- list(&quot;First&quot;, &quot;Second&quot;, &quot;Third&quot;)
+x</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;First&quot;
+## 
+## [[2]]
+## [1] &quot;Second&quot;
+## 
+## [[3]]
+## [1] &quot;Third&quot;</code></pre>
+<pre class="r"><code>x[2]</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;Second&quot;</code></pre>
+<pre class="r"><code>#x[[n]] - nth element of the list
+
+x &lt;- list(&quot;First&quot;, &quot;Second&quot;, &quot;Third&quot;)
+x</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;First&quot;
+## 
+## [[2]]
+## [1] &quot;Second&quot;
+## 
+## [[3]]
+## [1] &quot;Third&quot;</code></pre>
+<pre class="r"><code>x[[1]]</code></pre>
+<pre><code>## [1] &quot;First&quot;</code></pre>
+<pre class="r"><code>#x[[“name”]] - Element of the list named “name”
+
+x &lt;- list(&quot;First&quot;, &quot;Second&quot;, &quot;Third&quot;)
+x</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;First&quot;
+## 
+## [[2]]
+## [1] &quot;Second&quot;
+## 
+## [[3]]
+## [1] &quot;Third&quot;</code></pre>
+<pre class="r"><code>x[[&quot;First&quot;]]</code></pre>
+<pre><code>## NULL</code></pre>
+<pre class="r"><code>#x$name - Id
+
+x &lt;- list(&quot;First&quot;, &quot;Second&quot;, &quot;Third&quot;)
+x</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;First&quot;
+## 
+## [[2]]
+## [1] &quot;Second&quot;
+## 
+## [[3]]
+## [1] &quot;Third&quot;</code></pre>
+<pre class="r"><code>x$&quot;First&quot;</code></pre>
+<pre><code>## NULL</code></pre>
+</div>
+<div id="indexing-matrices" class="section level3">
+<h3>Indexing Matrices</h3>
+<pre class="r"><code>#x[a,b] - Element at row a, column b
+
+x &lt;- matrix(c(1:9),nrow=3,ncol=3)
+x</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<pre class="r"><code>x[3,2]</code></pre>
+<pre><code>## [1] 6</code></pre>
+<pre class="r"><code>#x[i,] - Row a
+
+x &lt;- matrix(c(1:9),nrow=3,ncol=3)
+x</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<pre class="r"><code>x[1,]</code></pre>
+<pre><code>## [1] 1 4 7</code></pre>
+<pre class="r"><code>#x[,b] - Column b
+
+x &lt;- matrix(c(1:9),nrow=3,ncol=3)
+x</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<pre class="r"><code>x[,2]</code></pre>
+<pre><code>## [1] 4 5 6</code></pre>
+<pre class="r"><code>#x[,c(1,2)] - columns 1 and 3
+
+x &lt;- matrix(c(1:9),nrow=3,ncol=3)
+x</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<pre class="r"><code>x[,c(1,3)]</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    1    7
+## [2,]    2    8
+## [3,]    3    9</code></pre>
+<pre class="r"><code>#x[“name”,] - Row named “name”
+
+x &lt;- matrix(c(1:9),nrow=3,ncol=3)
+x</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<pre class="r"><code>x[1,]</code></pre>
+<pre><code>## [1] 1 4 7</code></pre>
+</div>
+<div id="indexing-data-frames-matrix-indexing-plus-the-following" class="section level3">
+<h3>Indexing data frames (matrix indexing plus the following)</h3>
+<pre class="r"><code>#x[“name”,] - Column named “name”
+
+x &lt;- (1:3)
+y &lt;- (4:6)
+z &lt;- data.frame(x,y)
+z</code></pre>
+<pre><code>##   x y
+## 1 1 4
+## 2 2 5
+## 3 3 6</code></pre>
+<pre class="r"><code>z[&quot;x&quot;]</code></pre>
+<pre><code>##   x
+## 1 1
+## 2 2
+## 3 3</code></pre>
+<pre class="r"><code>#x$nameid - Column name 
+
+x &lt;- (1:3)
+y &lt;- (4:6)
+z &lt;- data.frame(x,y)
+z</code></pre>
+<pre><code>##   x y
+## 1 1 4
+## 2 2 5
+## 3 3 6</code></pre>
+<pre class="r"><code>z$x</code></pre>
+<pre><code>## [1] 1 2 3</code></pre>
+</div>
+</div>
+<div id="variable-conversion-1" class="section level2">
+<h2>Variable conversion</h2>
+<pre class="r"><code>#as.data.frame() - Converts variable to a dataframe
 
 x &lt;- c(1:5)
-y &lt;- c(1:5)
-
-
-
-as.data.frame(x,y)</code></pre>
+x</code></pre>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<pre class="r"><code>as.data.frame(x)</code></pre>
 <pre><code>##   x
 ## 1 1
 ## 2 2
 ## 3 3
 ## 4 4
 ## 5 5</code></pre>
-<pre class="r"><code>#Converts variable to numeric data type
+<pre class="r"><code>#as.numeric() - Converts variable to numeric data type
 
 x &lt;- c(&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;)
 
 class(x)</code></pre>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>as.numeric(x) </code></pre>
-<pre><code>## [1] 1 2 3 4</code></pre>
-<pre class="r"><code>#Combines vector, matrix or data frame by columns 
-
-as.data.frame(x) </code></pre>
-<pre><code>##   x
-## 1 1
-## 2 2
-## 3 3
-## 4 4</code></pre>
-<pre class="r"><code>x &lt;- (1:5)
-y &lt;- (6:10)
-z &lt;- data.frame(x,y)
-
-z</code></pre>
-<pre><code>##   x  y
-## 1 1  6
-## 2 2  7
-## 3 3  8
-## 4 4  9
-## 5 5 10</code></pre>
-<pre class="r"><code>#Combines vector, matrix or data frame by columns 
-
-as.data.frame(x) </code></pre>
-<pre><code>##   x
-## 1 1
-## 2 2
-## 3 3
-## 4 4
-## 5 5</code></pre>
-<pre class="r"><code>x &lt;- (1:5)
-y &lt;- (6:10)
-z &lt;- data.frame(x,y)
-
-z</code></pre>
-<pre><code>##   x  y
-## 1 1  6
-## 2 2  7
-## 3 3  8
-## 4 4  9
-## 5 5 10</code></pre>
+<pre class="r"><code>class(as.numeric(x)) </code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
 <pre class="r"><code>#Converts variable to a logical data type
 
 x &lt;- c(&quot;T&quot;, &quot;F&quot;, &quot;T&quot;, &quot;F&quot;)
@@ -499,12 +728,19 @@ class(x)</code></pre>
 </div>
 <div id="variable-information" class="section level2">
 <h2>Variable information</h2>
-<pre class="r"><code>#Determines if variable is &quot;NA&quot; value. Returns True or False.
+<pre class="r"><code>#is.na() - Determines if variable is &quot;NA&quot; value. Returns True or False.
 
-#is.na() </code></pre>
-<pre class="r"><code>#Determines if value is undefined. Returns True or False
+x &lt;- NA
+is.na(x)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>#is.null() - Determines if value is undefined. Returns True or False
 
-#is.null() </code></pre>
+j &lt;- NULL
+is.null(j)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>k &lt;- 1
+is.null(k) </code></pre>
+<pre><code>## [1] FALSE</code></pre>
 <pre class="r"><code>#Determines if value is a dataframe Returns True or False
 
 x &lt;- (1:5)
@@ -515,15 +751,13 @@ is.data.frame(z)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <pre class="r"><code>#Determines if value is a numeric data type. Returns True or False.
 
-x &lt;- (1:5)
+x &lt;- c(1,2,3)
 
 is.numeric(x) </code></pre>
 <pre><code>## [1] TRUE</code></pre>
-<pre class="r"><code>#Determines if value is a numeric data type. Returns True or False.
+<pre class="r"><code>y &lt;- c(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;)
 
-x &lt;- c(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;)
-
-is.numeric(x) </code></pre>
+is.numeric(y) </code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <pre class="r"><code>#Determines if value is a character data type. Returns True or False.
 
@@ -543,12 +777,24 @@ x &lt;- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE)
 
 dim(x)</code></pre>
 <pre><code>## [1] 3 2</code></pre>
-<pre class="r"><code>#Identifies the number of rows in x
+<pre class="r"><code>#dimnames() - Dimension names of an object
+
+x &lt;- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE)
+
+dimnames(x) </code></pre>
+<pre><code>## NULL</code></pre>
+<pre class="r"><code>#nrow() - Identifies the number of rows in x
 
 x &lt;- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE)
 
 nrow(x) </code></pre>
 <pre><code>## [1] 3</code></pre>
+<pre class="r"><code>#ncol() - Identifies the number of columns in x
+
+x &lt;- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE)
+
+ncol(x) </code></pre>
+<pre><code>## [1] 2</code></pre>
 <pre class="r"><code>#Identifies data type of variable
 
 x &lt;- c(&quot;First&quot;, &quot;Second&quot;, &quot;Third&quot;)
@@ -566,84 +812,97 @@ attributes(x)</code></pre>
 </div>
 <div id="data-selection-and-manipulation" class="section level1">
 <h1>Data selection and manipulation</h1>
-<pre class="r"><code>#Accesses the attribute of an object attribute
+<pre class="r"><code>#which.max() - Identifies index that has the highest value in a variable
 
-x &lt;- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE)
-
-attributes(x)</code></pre>
-<pre><code>## $dim
-## [1] 3 2</code></pre>
-<pre class="r"><code>#Identifies index that has the lowest value in a variable
+which.max(c(32,34,3,2,212,33243,34234,532))</code></pre>
+<pre><code>## [1] 7</code></pre>
+<pre class="r"><code>#which.min() - Identifies index that has the lowest value in a variable
 
 which.min(c(32,34,3,2,212,33243,34234,532))</code></pre>
 <pre><code>## [1] 4</code></pre>
-<pre class="r"><code>#Identifies index that has the highest value in a variable
-
-which.min(c(32,34,3,2,212,33243,34234,532))</code></pre>
-<pre><code>## [1] 4</code></pre>
-<pre class="r"><code>#Identifies index that has the highest value in a variable
-
-which.min(c(32,34,3,2,212,33243,34234,532))</code></pre>
-<pre><code>## [1] 4</code></pre>
-<pre class="r"><code>#Identifies index of an argument that fulfills a condition
+<pre class="r"><code>#which() - Identifies index of an argument that fulfills a condition
 
 x &lt;- c(20,3,2, 4,30,2,3,5,32,432)
 which(x &gt; 100)</code></pre>
 <pre><code>## [1] 10</code></pre>
-<pre class="r"><code>#Arranges a vector in either descending or ascending order
+<pre class="r"><code>#sort() - Arranges a vector in either descending or ascending order
 
 x &lt;- c(20,3,2, 4,30,2,3,5,32,432)
 
 sort(x,decreasing = F)</code></pre>
 <pre><code>##  [1]   2   2   3   3   4   5  20  30  32 432</code></pre>
-<pre class="r"><code>#Returns unique values of an argument
+<pre class="r"><code>#unique() = Returns unique values of a variable
 
 x &lt;- c(1,1,1,1,1,1,2,2,2,2,2,2,2,23,3,3,3,3,33,3,3)
 
 unique(x)</code></pre>
 <pre><code>## [1]  1  2 23  3 33</code></pre>
+<pre class="r"><code>#table() - Converts a variable into a table and counts the frequency of its unique values
+
+x &lt;- c(1,1,1,1,1,1,2,2,2,2,2,2,2,23,3,3,3,3,33,3,3)
+
+table(x)</code></pre>
+<pre><code>## x
+##  1  2  3 23 33 
+##  6  7  6  1  1</code></pre>
+<pre class="r"><code>#sample() - Creates a random sample of numbers, letters, etc.
+
+x &lt;- sample(1:10, 10)
+
+x</code></pre>
+<pre><code>##  [1]  9  6  4  2  5  8  3  1 10  7</code></pre>
 <div id="math" class="section level2">
 <h2>Math</h2>
-<pre class="r"><code>#Identifies maximum value of a set of values
+<pre class="r"><code>#max()- Identifies maximum value of a set of values
 
 max(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  </code></pre>
 <pre><code>## [1] 43</code></pre>
-<pre class="r"><code>#Identifies minimum value of a set of values
+<pre class="r"><code>#min() - Identifies minimum value of a set of values
 
-max(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  </code></pre>
-<pre><code>## [1] 43</code></pre>
-<pre class="r"><code>#Identifies range of a set of values
+min(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  </code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>#range() - Identifies range of a set of values
 
 range(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  </code></pre>
 <pre><code>## [1]  1 43</code></pre>
-<pre class="r"><code>#Identifies sum of a set of values
+<pre class="r"><code>#sum() -Identifies sum of a set of values
 
 sum(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  </code></pre>
 <pre><code>## [1] 130</code></pre>
-<pre class="r"><code>#Identifies mean of a set of values
+<pre class="r"><code>#mean() - Identifies mean of a set of values
 
 mean(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  </code></pre>
 <pre><code>## [1] 1</code></pre>
-<pre class="r"><code>#Identifies median of a set of values
+<pre class="r"><code>#median() - Identifies median of a set of values
 
 median(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23)  </code></pre>
 <pre><code>## [1] 1</code></pre>
-<pre class="r"><code>#Identifies variance of a set of values
+<pre class="r"><code>#var() - Identifies variance of a set of values
 
 var(c(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23))  </code></pre>
 <pre><code>## [1] 116.3676</code></pre>
-<pre class="r"><code>#Identifies correlation of a set of values
+<pre class="r"><code>#sd() - Identifies standard deviation of a set of values
+
+sd(c(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23))  </code></pre>
+<pre><code>## [1] 10.78738</code></pre>
+<pre class="r"><code>#cor() - Identifies correlation of a set of values
 
 cor(c(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23), c(1,2,23,3,4,4,5,5,6,7,4,3,3,2,3,5,6))  </code></pre>
 <pre><code>## [1] 0.09516114</code></pre>
-<pre class="r"><code>#Identifies absolute value
+<pre class="r"><code>#round() - Rounds a value to a given place
+
+cor(c(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23), c(1,2,23,3,4,4,5,5,6,7,4,3,3,2,3,5,6))</code></pre>
+<pre><code>## [1] 0.09516114</code></pre>
+<pre class="r"><code>round((cor(c(1,2,4,5,6,9,12,12,43,2,1,2,3,2,1,2,23), c(1,2,23,3,4,4,5,5,6,7,4,3,3,2,3,5,6))), 2)</code></pre>
+<pre><code>## [1] 0.1</code></pre>
+<pre class="r"><code>#abs() - Identifies absolute value
 
 abs(-100 + 0) </code></pre>
 <pre><code>## [1] 100</code></pre>
 </div>
-<div id="matrix" class="section level2">
-<h2>Matrix</h2>
-<pre class="r"><code>#Returns the sum from each row of x
+<div id="matrices" class="section level2">
+<h2>Matrices</h2>
+<pre class="r"><code>#t() - Transposes a dataframe or matrix
 
 x &lt;- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE) 
 
@@ -652,16 +911,32 @@ x</code></pre>
 ## [1,]    3    5
 ## [2,]    7    1
 ## [3,]    9    4</code></pre>
-<pre class="r"><code>rowSums(x)</code></pre>
-<pre><code>## [1]  8  8 13</code></pre>
-<!-- t() -->
-<p><!-- diag() --></p>
-<p>```r #Returns the sum from each column of x</p>
-<p>x &lt;- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE)</p>
-<p>x ```</p>
-<p><code>##      [,1] [,2]   ## [1,]    3    5   ## [2,]    7    1   ## [3,]    9    4</code></p>
-<p><code>r   colSums(x)</code></p>
-<p><code>## [1] 19 10</code></p>
+<pre class="r"><code>t(x)</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    3    7    9
+## [2,]    5    1    4</code></pre>
+<pre class="r"><code>#diag() - Diagonal matrix of x
+
+x &lt;- matrix(c(3,5,7,1,9,4),nrow=3,ncol=3,byrow=TRUE) 
+
+x</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    3    5    7
+## [2,]    1    9    4
+## [3,]    3    5    7</code></pre>
+<pre class="r"><code>diag(x)</code></pre>
+<pre><code>## [1] 3 9 7</code></pre>
+<pre class="r"><code>#colSums() - Returns the sum from each row of x
+
+x &lt;- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE) 
+
+x</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    3    5
+## [2,]    7    1
+## [3,]    9    4</code></pre>
+<pre class="r"><code>colSums(x)</code></pre>
+<pre><code>## [1] 19 10</code></pre>
 <pre class="r"><code>#Returns the mean from each row of x
 
 x &lt;- matrix(c(3,5,7,1,9,4),nrow=3,ncol=2,byrow=TRUE) 
@@ -684,45 +959,152 @@ x</code></pre>
 ## [3,]    9    4</code></pre>
 <pre class="r"><code>colMeans(x)</code></pre>
 <pre><code>## [1] 6.333333 3.333333</code></pre>
-<!-- ##Advanced Data processing -->
-<p><!-- ```{r, eval=TRUE} --> <!-- #Returns the mean from each column of x --></p>
-<p><!-- apply() --> <!-- aggregate() - Group data by a specific group --> <!-- ``` --></p>
-<p>##Strings</p>
-<p>```r #Converts argument to character data type and concatentates them together</p>
-<p>paste(1,2,3,4,5) ```</p>
-<p><code>## [1] &quot;1 2 3 4 5&quot;</code></p>
-<pre class="r"><code>#Splits character vector x into substrings by matching substring
+</div>
+<div id="advanced-data-processing" class="section level2">
+<h2>Advanced Data Processing</h2>
+<pre class="r"><code>#aaply() - Apply a function on multiple cases at once
+
+a &lt;- c(T, F, T)
+b &lt;- c(1,2,3)
+c &lt;- c(&quot;First&quot;, &quot;Second&quot;, &quot;Third&quot;)
+
+d &lt;- data.frame(a,b,c)
+apply(d, c(1,2), class)</code></pre>
+<pre><code>##      a           b           c          
+## [1,] &quot;character&quot; &quot;character&quot; &quot;character&quot;
+## [2,] &quot;character&quot; &quot;character&quot; &quot;character&quot;
+## [3,] &quot;character&quot; &quot;character&quot; &quot;character&quot;</code></pre>
+<pre class="r"><code>#aggregate() - Takes an aggregate of a given set of values
+
+Score &lt;- sample(c(1:100), 10)
+Gender &lt;- sample(c(&quot;Boy&quot;, &quot;Girl&quot;), 10, replace = T)
+FinalGrades &lt;- data.frame(Score,Gender)
+aggregate(Score ~ Gender, FinalGrades, mean)</code></pre>
+<pre><code>##   Gender    Score
+## 1    Boy 54.00000
+## 2   Girl 40.71429</code></pre>
+</div>
+<div id="strings" class="section level2">
+<h2>Strings</h2>
+<pre class="r"><code>#paste() - Concatenate vectors after converting to character.
+
+b &lt;- 1:10
+
+c &lt;- paste(b)
+b</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code>c</code></pre>
+<pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot;</code></pre>
+<pre class="r"><code>#strsplit() - Splits character vector x into substrings by matching substring
 
 strsplit(&quot;BR_OOK_LYN_CO_LL_EGE&quot;, &quot;_&quot;)</code></pre>
 <pre><code>## [[1]]
 ## [1] &quot;BR&quot;  &quot;OOK&quot; &quot;LYN&quot; &quot;CO&quot;  &quot;LL&quot;  &quot;EGE&quot;</code></pre>
-<pre class="r"><code>#Splits character vector x into substrings by matching substring
-
-strsplit(&quot;BR_OOK_LYN_CO_LL_EGE&quot;, &quot;_&quot;)</code></pre>
-<pre><code>## [[1]]
-## [1] &quot;BR&quot;  &quot;OOK&quot; &quot;LYN&quot; &quot;CO&quot;  &quot;LL&quot;  &quot;EGE&quot;</code></pre>
-<pre class="r"><code>#Converts text to lower case
+<pre class="r"><code>#tolower() - Converts text to lower case
 
 tolower(&quot;LOWERCASE&quot;)  </code></pre>
 <pre><code>## [1] &quot;lowercase&quot;</code></pre>
-<pre class="r"><code>#Converts text to lower case
+<pre class="r"><code>#toupper() - Converts text to lower case
 
 toupper(&quot;uppercase&quot;)  </code></pre>
 <pre><code>## [1] &quot;UPPERCASE&quot;</code></pre>
 </div>
-<div id="distributions" class="section level2">
-<h2>Distributions</h2>
-<pre class="r"><code>#Base histogram plot
+<div id="plotting" class="section level2">
+<h2>Plotting</h2>
+<pre class="r"><code>#hist() - Base histogram plot
 
 x &lt;- rnorm(100, 45, 2)
 hist(x)</code></pre>
-<p><img src="RDictionary_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
-<pre class="r"><code>#Plots a regular baseplot based on the type and number of vairables
+<p><img src="RDictionary_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
+<pre class="r"><code>#plot() - Plots a regular baseplot based on the type and number of vairables
 
 x &lt;- rnorm(100, 45, 2)
 y &lt;- rnorm(100, 45, 2)
 plot(x,y) </code></pre>
-<p><img src="RDictionary_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
+<p><img src="RDictionary_files/figure-html/unnamed-chunk-92-1.png" width="672" /></p>
+</div>
+<div id="distributions" class="section level2">
+<h2>Distributions</h2>
+<pre class="r"><code>#rnorm() - Compute a series of values that would make a normal distribution
+
+x &lt;- rnorm(100, 45, 2)
+x</code></pre>
+<pre><code>##   [1] 47.11626 42.05024 44.03305 42.90435 44.61878 42.28331 44.38794
+##   [8] 48.01557 45.50329 47.04145 45.35563 47.13804 45.25775 42.30785
+##  [15] 44.13071 43.27225 45.84690 48.02276 46.47373 44.67369 45.03967
+##  [22] 44.30713 43.22937 47.24315 42.72885 43.85509 45.11856 45.36509
+##  [29] 45.98023 46.06014 44.71322 42.02330 43.26672 48.01633 45.58435
+##  [36] 44.85884 44.01168 46.43757 46.72389 46.03115 47.41932 44.21595
+##  [43] 44.88874 43.15969 45.98834 45.89107 44.19224 40.88676 45.73996
+##  [50] 39.28335 50.14175 44.14082 46.24000 45.24446 42.54441 46.84228
+##  [57] 44.48814 46.59352 46.94668 49.42378 43.52350 46.73262 45.42041
+##  [64] 46.33037 43.70914 45.00563 44.16815 44.38644 42.90029 45.21666
+##  [71] 45.26763 46.65521 43.92173 42.80090 46.57586 45.59233 46.95931
+##  [78] 45.24617 46.72746 47.53935 41.02136 45.59233 44.05126 44.54525
+##  [85] 43.17355 44.37820 46.89960 46.97460 45.95544 42.27771 40.70177
+##  [92] 41.78501 42.02145 45.06688 42.94414 43.79904 46.09179 45.97000
+##  [99] 45.58776 42.11307</code></pre>
+<pre class="r"><code>#runif() - Compute a series of values within a range
+
+x &lt;- runif(100, 45, 2)
+x</code></pre>
+<pre><code>##   [1] NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN
+##  [18] NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN
+##  [35] NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN
+##  [52] NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN
+##  [69] NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN
+##  [86] NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN</code></pre>
+</div>
+<div id="programming" class="section level2">
+<h2>Programming</h2>
+<pre class="r"><code>#Function
+
+SelfSquare &lt;- function(x){
+  x &lt;- x * x
+}
+
+print(SelfSquare(4))</code></pre>
+<pre><code>## [1] 16</code></pre>
+<pre class="r"><code>#For loop
+
+for (i in c(1:5)){
+  print(i)
+}</code></pre>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5</code></pre>
+<pre class="r"><code>#While loop
+i &lt;- 1
+while(i &lt;= 5){
+  print(i)
+  print(&quot;i is less than 5&quot;)
+  i &lt;- i +1
+}</code></pre>
+<pre><code>## [1] 1
+## [1] &quot;i is less than 5&quot;
+## [1] 2
+## [1] &quot;i is less than 5&quot;
+## [1] 3
+## [1] &quot;i is less than 5&quot;
+## [1] 4
+## [1] &quot;i is less than 5&quot;
+## [1] 5
+## [1] &quot;i is less than 5&quot;</code></pre>
+<pre class="r"><code>#If else 
+i &lt;- 6
+if (i &lt;= 5){
+  print(i)
+  print(&quot;i is less than or equal to 5&quot;)
+} else {
+  print(i)
+  print(&quot;i is greater than 5&quot;)
+}</code></pre>
+<pre><code>## [1] 6
+## [1] &quot;i is greater than 5&quot;</code></pre>
+<pre><code>Explain what return() does inside a function, show you can use it
+Explain what break() does, show you can use it</code></pre>
 </div>
 </div>
 
