@@ -1,0 +1,95 @@
+---
+title: "Visualizations"
+author: "Kamal"
+date: "3/4/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Visualizing Data In ggplot2
+
+###Calcutt, S. E., Proctor, D., & Berman, S. M. (2019). Chimpanzees (Pan troglodytes) Are More Averse to Social Than Nonsocial Risk. Psychological Science, 30, 105–115.
+
+```{r, eval=TRUE}
+library(ggplot2)
+
+Dara <- c(58, 60)
+Rita <- c(51, 65)
+Liza <- c(45, 35)
+Katie <- c(5, 5)
+Azelea <- c(25, 42)
+Barbi <- c(1,41)
+Rowena <- c(5, 38)
+Fiona <- c(0, 10)
+
+Chimpanzee <- rep(c("Dara", "Rita", "Liza", "Katie", "Azelea", "Barbi", "Rowena", "Fiona"), each = 2)
+
+Condition <- rep(c("Non Social Condition", "Social Condition"), 8)
+
+Score <- c(58, 60, 51, 55, 45, 35, 5, 5, 25, 42, 1, 41, 5, 38, 0, 10)
+
+Significance <- rep(c("NonSig", "Sig"), each = 8)
+CalcuttEtAl2019 <- data.frame(Chimpanzee, Condition, Score, Significance)
+
+
+ggplot(CalcuttEtAl2019, aes(Condition, Score, group = Chimpanzee, linetype= Significance))+
+ geom_line()+
+ geom_text(label = Chimpanzee)
+```
+
+###Jefferies, L. N., & Lollo, V. D. (2019). Sudden Events Change Old Visual Objects Into New Ones: A Possible Role for Phasic Activation of Locus Coeruleus. Psychological Science, 30, 55–64.
+```{r, eval=TRUE}
+library(ggplot2)
+library(scales)
+
+StudyScore <-c(c(abs(rnorm(192, 2.1, 1)), rep(c(1:7))), # Values for Doctor
+ c(abs(rnorm(198, 3.3, 1)), 7), # Values for Butcher
+ c(abs(rnorm(195, 3.1, 1)), 4.5, 4.5, 4.8, 4.7, 7), #Values for Firefighter
+ c(abs(rnorm(200, 3.1, 1)), 4.5, 4.8, 4.8, 4.7, 7)) #Values for Construction Worker
+
+StudyGroup<- c(rep("Doctor Study 1", 199), #Levels for Doctor
+ rep("Butcher Study 2", 199), #Levels for Butcher
+ rep("Firefighter Study 3", 200), #Levels for Firefigher
+ rep("Construction Study 4", 205)) #Levels for Construction Worker
+
+Likelihood <-  c(rep(c("Women More Likely", "Equally Likely", "Man More Likely"), c(0, 189, 10)), #Create frequency of Likelihood for Doctor
+ rep(c("Women More Likely", "Equally Likely", "Man More Likely"), c(4, 133, 62)), #Create frequency of Likelihood for Butcher
+ rep(c("Women More Likely", "Equally Likely", "Man More Likely"), c(3, 121, 76)), #Create frequency of Likelihood for Firefigher
+ rep(c("Women More Likely", "Equally Likely", "Man More Likely"), c(3, 120, 82))) #Create frequency of Likelihood for Construction Worker
+
+Cao2019EtAl <- data.frame(Likelihood, StudyGroup, StudyScore) #Create dataset
+
+Cao2019EtAltable <- data.frame(table(Likelihood, StudyGroup)) #Create table for frequency table
+
+ggplot(Cao2019EtAltable ,aes(x = StudyGroup, y = Freq ,fill = Likelihood)) +  # Grouped bar plot
+ geom_bar(position = "fill",stat = "identity") +
+ scale_y_continuous(labels = percent_format())
+
+ggplot(Cao2019EtAl, aes(StudyGroup, StudyScore)) + geom_violin()
+```
+
+###Jouravlev, O., Schwartz, R., Ayyash, D., Mineroff, Z., Gibson, E., & Fedorenko, E. (2019). Tracking Colisteners’ Knowledge States During Language Comprehension. Psychological Science, 30, 3–19.
+```{r, eval=TRUE}
+
+library(ggplot2)
+
+n <- 200; m1 <-8; m2<-2; s1<-1;s2<-3;p< -.31
+
+x<- rnorm(n, m1, s1)
+
+y <- s2*p*(x-m1)/s1 + m2 + s2*rnorm(n,0,sqrt(1-p^2))
+
+Pos.cor <- data.frame(x, y)
+
+ggplot(Pos.cor, aes(Pos.cor$x, Pos.cor$y)) + 
+  geom_point(size = .5) + 
+  theme(panel.background=element_blank()) +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  theme(plot.background=element_blank()) +
+  theme(legend.position="none") +
+  labs( x = "Social N400", y = "Autism-Spectrum Quotient (score)")
+
+```

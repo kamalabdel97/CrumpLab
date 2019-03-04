@@ -7,7 +7,9 @@ navbar:
     - text: "Sample Problems"
       href: Sample_Problems.html
     - text: "R Dictionary"
-      href: RDictionary.html  
+      href: RDictionary.html
+    - text: "Visualizations"
+      href: Visualizations.html
     - text: "Links"
       href: Links.html
 output_dir: "docs"

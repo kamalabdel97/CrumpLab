@@ -288,6 +288,9 @@ $(document).ready(function () {
   <a href="RDictionary.html">R Dictionary</a>
 </li>
 <li>
+  <a href="Visualizations.html">Visualizations</a>
+</li>
+<li>
   <a href="Links.html">Links</a>
 </li>
       </ul>
@@ -1079,19 +1082,19 @@ for (i in c(1:5)){
 i &lt;- 1
 while(i &lt;= 5){
   print(i)
-  print(&quot;i is less than 5&quot;)
+  print(&quot;i is less than or equal to 5&quot;)
   i &lt;- i +1
 }</code></pre>
 <pre><code>## [1] 1
-## [1] &quot;i is less than 5&quot;
+## [1] &quot;i is less than or equal to 5&quot;
 ## [1] 2
-## [1] &quot;i is less than 5&quot;
+## [1] &quot;i is less than or equal to 5&quot;
 ## [1] 3
-## [1] &quot;i is less than 5&quot;
+## [1] &quot;i is less than or equal to 5&quot;
 ## [1] 4
-## [1] &quot;i is less than 5&quot;
+## [1] &quot;i is less than or equal to 5&quot;
 ## [1] 5
-## [1] &quot;i is less than 5&quot;</code></pre>
+## [1] &quot;i is less than or equal to 5&quot;</code></pre>
 <pre class="r"><code>#If else 
 i &lt;- 6
 if (i &lt;= 5){
@@ -1103,8 +1106,38 @@ if (i &lt;= 5){
 }</code></pre>
 <pre><code>## [1] 6
 ## [1] &quot;i is greater than 5&quot;</code></pre>
-<pre><code>Explain what return() does inside a function, show you can use it
-Explain what break() does, show you can use it</code></pre>
+<pre class="r"><code>#return() - Sends back a value from within a function in regards to it&#39;s function
+
+addition &lt;- function(x){
+  if (x &gt; 5){
+    return(x +1)
+  } else{
+    return(x +2)
+  }
+}
+addition(1)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<pre class="r"><code>addition(10)</code></pre>
+<pre><code>## [1] 11</code></pre>
+<pre class="r"><code>#break() - Usually used in while loops to fall out of the loop
+
+i &lt;- 1
+while(i &lt;= 5){
+  print(i)
+  print(&quot;i is less than or equal to 5&quot;)
+  i &lt;- i +1
+  if(i == 3){
+    print(i)
+    print(&quot;Here is where the loop will break&quot;)
+    break
+  }
+}</code></pre>
+<pre><code>## [1] 1
+## [1] &quot;i is less than or equal to 5&quot;
+## [1] 2
+## [1] &quot;i is less than or equal to 5&quot;
+## [1] 3
+## [1] &quot;Here is where the loop will break&quot;</code></pre>
 </div>
 </div>
 
