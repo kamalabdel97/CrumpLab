@@ -8,6 +8,8 @@ navbar:
       href: Sample_Problems.html
     - text: "R Dictionary"
       href: RDictionary.html
+    - text: "The Data Wrangler"
+      href: Data_Wrangler.html
     - text: "Visualizations"
       href: Visualizations.html
     - text: "Links"
