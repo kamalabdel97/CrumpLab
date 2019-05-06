@@ -1,6 +1,6 @@
-title: "The Data Wrangler"
+---
+title: "Flanker Analysis"
 author: "Kamal Abdelrahman"
-date: "1/31/2019"
 output:
   html_document:
     collapsed: no
@@ -224,3 +224,4 @@ sub_means <- all_data %>%
 aov_sum<-summary(aov(meanRT~congruency+Error(subject/congruency),sub_means))
 o_F <- aov_sum$`Error: subject:congruency`[[1]]$`F value`[1]
 sim_Fs[sim_Fs>15.25888]
+```
